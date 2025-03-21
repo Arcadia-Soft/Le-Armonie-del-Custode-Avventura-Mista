@@ -1,20 +1,21 @@
 package learmoniedelcustode;
 
-import Other.GameDescription;
-import Other.GameObserver;
-import Parser.ParserOutput;
-import Rest.QuizAPI;
-import Tipi.CommandType;
-import Tipi.Dialogo;
-import Tipi.Inventario;
-import Tipi.Item;
+import other.GameDescription;
+import other.GameObserver;
+import parser.ParserOutput;
+import rest.QuizAPI;
+import tipi.CommandType;
+import tipi.Dialogo;
+import tipi.Inventario;
+import tipi.Item;
 
 public class TalkToObserver implements GameObserver {
 
     @Override
     public String update(GameDescription description, ParserOutput parserOutput) {
         String msg = "";
-        if (parserOutput.getCommand().getType() == CommandType.TALK_TO && parserOutput.getInputString().split(" ").length != 1) {
+        if (parserOutput.getCommand().getType() == CommandType.TALK_TO
+                && parserOutput.getInputString().split(" ").length != 1) {
             msg = "Per parlare con qualcuno non devi aggiungere nulla alla parola 'Parla'! Formato: Parla (avvia dialogo) e successivamente Risposta.";
         } else if (parserOutput.getCommand().getType() == CommandType.TALK_TO) {
             Dialogo dialogo = description.getDialoghi().stream()
@@ -29,7 +30,8 @@ public class TalkToObserver implements GameObserver {
             } else {
                 msg = "Il maniconimio è chiuso, basta parlare da solo...";
             }
-        } else if (description.getLastCommand().getType() == CommandType.TALK_TO && parserOutput.getCommand().getType() == CommandType.NULL_COMMAND) {
+        } else if (description.getLastCommand().getType() == CommandType.TALK_TO
+                && parserOutput.getCommand().getType() == CommandType.NULL_COMMAND) {
             Dialogo dialogo = description.getDialoghi().stream()
                     .filter(d -> description.getCurrentCasella().getId() == d.getIdCasella())
                     .findAny()
@@ -48,8 +50,8 @@ public class TalkToObserver implements GameObserver {
                                 msg = "\"Ma non hai monete vigliacco! Mi hai mentito!\" (non hai monete d'oro, prova a tornare a casa)";
                             }
                         }
-                        
-                        case 908 ->{
+
+                        case 908 -> {
                             dialogo.changeDialogo();
                             description.getCurrentCasella().getNorth().setEnterable(true);
                         }

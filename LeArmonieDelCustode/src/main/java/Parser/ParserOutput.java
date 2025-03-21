@@ -1,7 +1,7 @@
-package Parser;
+package parser;
 
-import Grafica.InterfacciaGioco;
-import Tipi.Command;
+import grafica.InterfacciaGioco;
+import tipi.Command;
 
 /**
  *

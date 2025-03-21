@@ -8,77 +8,77 @@
             "type": "java",
             "name": "Starter",
             "request": "launch",
-            "mainClass": "Other.Starter",
+            "mainClass": "other.Starter",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "RecordClient",
             "request": "launch",
-            "mainClass": "Classifica.RecordClient",
+            "mainClass": "classifica.RecordClient",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "RecordServer",
             "request": "launch",
-            "mainClass": "Classifica.RecordServer",
+            "mainClass": "classifica.RecordServer",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "Client",
             "request": "launch",
-            "mainClass": "Classifica.Client",
+            "mainClass": "classifica.Client",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "Server",
             "request": "launch",
-            "mainClass": "Classifica.Server",
+            "mainClass": "classifica.Server",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "InterfacciaFinale",
             "request": "launch",
-            "mainClass": "Grafica.InterfacciaFinale",
+            "mainClass": "grafica.InterfacciaFinale",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "InterfacciaInventario",
             "request": "launch",
-            "mainClass": "Grafica.InterfacciaInventario",
+            "mainClass": "grafica.InterfacciaInventario",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "InterfacciaGioco",
             "request": "launch",
-            "mainClass": "Grafica.InterfacciaGioco",
+            "mainClass": "grafica.InterfacciaGioco",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "GestioneDB",
             "request": "launch",
-            "mainClass": "Other.GestioneDB",
+            "mainClass": "other.GestioneDB",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "QuizAPI",
             "request": "launch",
-            "mainClass": "Rest.QuizAPI",
+            "mainClass": "rest.QuizAPI",
             "projectName": "LeArmonieDelCustode"
         },
         {
             "type": "java",
             "name": "InterfacciaInizio",
             "request": "launch",
-            "mainClass": "Grafica.InterfacciaInizio",
+            "mainClass": "grafica.InterfacciaInizio",
             "projectName": "LeArmonieDelCustode"
         },
         {

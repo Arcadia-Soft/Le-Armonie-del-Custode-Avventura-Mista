@@ -1,4 +1,4 @@
-package Other;
+package other;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Musica {
 
     private Clip musicaGioco;
-    // private File defaultMusic = new File("LeArmonieDelCustode\\resource\\other\\background_music.wav");
+    // private File defaultMusic = new
+    // File("LeArmonieDelCustode\\resource\\other\\background_music.wav");
 
     /**
      * Metodo che avvia la riproduzione della musica all'esecuzione del programma.
@@ -37,7 +38,8 @@ public class Musica {
             musicaGioco.loop(Clip.LOOP_CONTINUOUSLY);
 
             musicaGioco.start();
-        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) { }
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+        }
     }
 
     /**
@@ -70,25 +72,24 @@ public class Musica {
      * 
      * @param volume
      */
-    public void setVolume (float volume) {
-        FloatControl gainControl = (FloatControl) musicaGioco.getControl(FloatControl.Type.MASTER_GAIN);        
-        gainControl.setValue(volume);     
+    public void setVolume(float volume) {
+        FloatControl gainControl = (FloatControl) musicaGioco.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(volume);
     }
 
     public float getVolume() {
-        FloatControl gainControl = (FloatControl) musicaGioco.getControl(FloatControl.Type.MASTER_GAIN);        
+        FloatControl gainControl = (FloatControl) musicaGioco.getControl(FloatControl.Type.MASTER_GAIN);
         return gainControl.getValue();
     }
 
-    public void riproduciClip (String filePath) {
+    public void riproduciClip(String filePath) {
         try {
             Clip clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(new File(filePath)));
             clip.start();
-        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) { 
-            Logger.getLogger(Musica.class.getName()).log(Level.SEVERE, null , e);
-        }   
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+            Logger.getLogger(Musica.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
-
 
 }

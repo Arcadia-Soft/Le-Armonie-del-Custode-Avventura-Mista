@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package Other;
+package other;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,13 +34,13 @@ public class StampaTesto implements Runnable {
         this.skipButton = skipButton;
         this.isFinal = false;
     }
-    
+
     public static StampaTesto getInstance(JTextField textFieldInput, JTextArea textAreaOutput, JButton skipButton) {
         instance = new StampaTesto(textFieldInput, textAreaOutput, skipButton);
         return instance;
     }
 
-    public static StampaTesto getInstance(){
+    public static StampaTesto getInstance() {
         return instance;
 
     }
@@ -64,15 +64,15 @@ public class StampaTesto implements Runnable {
         return thread != null && thread.isAlive();
     }
 
-    public void interrupt () {
+    public void interrupt() {
         thread.interrupt();
     }
 
-    public void printRemaining(){
-        for ( ; currentParola < paroleDaStampare.length; currentParola++) {
-            if(paroleDaStampare[currentParola].equals("\\n"))
+    public void printRemaining() {
+        for (; currentParola < paroleDaStampare.length; currentParola++) {
+            if (paroleDaStampare[currentParola].equals("\\n"))
                 textAreaOutput.append("\n");
-            else 
+            else
                 textAreaOutput.append(paroleDaStampare[currentParola] + " ");
         }
     }
@@ -80,7 +80,6 @@ public class StampaTesto implements Runnable {
     public void setAttesa(int attesa) {
         ATTESA = attesa;
     }
-
 
     /**
      * Metodo che gestisce l'esecuzione del thread e la lettura della stringa da
@@ -94,17 +93,17 @@ public class StampaTesto implements Runnable {
         for (currentParola = 0; currentParola < paroleDaStampare.length; currentParola++) {
             try {
                 Thread.sleep(ATTESA);
-                if(paroleDaStampare[currentParola].equals("\\n"))
+                if (paroleDaStampare[currentParola].equals("\\n"))
                     textAreaOutput.append("\n");
-                else 
+                else
                     textAreaOutput.append(paroleDaStampare[currentParola] + " ");
 
                 textAreaOutput.setCaretPosition(textAreaOutput.getDocument().getLength());
             } catch (InterruptedException ex) {
                 printRemaining();
             }
-        } 
-        if (!isFinal){
+        }
+        if (!isFinal) {
             textAreaOutput.append("\n\nCosa vuoi fare?\n ➤ ");
             textFieldInput.setEnabled(true);
             skipButton.setEnabled(false);
@@ -116,6 +115,6 @@ public class StampaTesto implements Runnable {
                 Logger.getLogger(StampaTesto.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-            
+
     }
 }

@@ -1,4 +1,4 @@
-package Rest;
+package rest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
 
-import Tipi.Dialogo;
+import tipi.Dialogo;
 
 public class QuizAPI {
 
@@ -112,12 +112,14 @@ public class QuizAPI {
 				 * &quot; -> "
 				 * &#039; -> '
 				 */
-				String s = "\"What's up lil' kid?? Come stai? Mr. Scaramboola qui, come here and PLAY... HIP HIP ARRAY! Dimmi un po'...\"" + "\n"
+				String s = "\"What's up lil' kid?? Come stai? Mr. Scaramboola qui, come here and PLAY... HIP HIP ARRAY! Dimmi un po'...\""
+						+ "\n"
 						+ r.getResults().get(0).getQuestion().replaceAll("&quot;", "\"").replaceAll("&#039;", "'");
 				s += "\n";
 				List<String> allAnswer = new ArrayList<>();
-				allAnswer.add(r.getResults().get(0).getCorrect_answer().replaceAll("&quot;", "\"").replaceAll("&#039;", "'"));
-				
+				allAnswer.add(
+						r.getResults().get(0).getCorrect_answer().replaceAll("&quot;", "\"").replaceAll("&#039;", "'"));
+
 				for (String answer : r.getResults().get(0).getIncorrect_answers()) {
 					allAnswer.add(answer.replaceAll("&quot;", "\"").replaceAll("&#039;", "'"));
 				}
@@ -128,7 +130,7 @@ public class QuizAPI {
 				}
 				dialogo.setTestoDialogo(s);
 				dialogo.setRisposta(r.getResults().get(0).getCorrect_answer());
-				System.out.println(r.getResults().get(0).getCorrect_answer());	// DEBUG LINE
+				System.out.println(r.getResults().get(0).getCorrect_answer()); // DEBUG LINE
 
 			} else {
 				totalRequest++;

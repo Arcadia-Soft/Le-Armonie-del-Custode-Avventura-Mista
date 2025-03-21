@@ -1,4 +1,4 @@
-package Grafica;
+package grafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,10 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Classifica.Client;
-import Classifica.Record;
-import Other.Musica;
-import Other.StampaTesto;
+import classifica.Client;
+import classifica.Record;
+import other.Musica;
+import other.StampaTesto;
 
 /**
  *
@@ -51,14 +51,14 @@ public class InterfacciaFinale extends javax.swing.JFrame {
         Record record = new Record(giocatore, time, formatted);
         try {
             client.sendRecord(record);
-            music.playMusic("resource\\other\\the_end_music.wav");
+            music.playMusic("resource/other/the_end_music.wav");
         } catch (Exception e) {
             JButton okButton = new JButton("Ok");
             okButton.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override
                 public void mouseReleased(java.awt.event.MouseEvent evt) {
                     dispose();
-                    music.playMusic("resource\\other\\the_end_music.wav");
+                    music.playMusic("resource/other/the_end_music.wav");
                 }
             });
             JOptionPane info = new JOptionPane(e.getMessage(), JOptionPane.INFORMATION_MESSAGE,
@@ -86,7 +86,7 @@ public class InterfacciaFinale extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Le Armonie del Custode - Good Ending! :)");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         setResizable(false);
         setSize(1000, 600);
         setBackground(BLACK);
@@ -98,7 +98,7 @@ public class InterfacciaFinale extends javax.swing.JFrame {
         stampa.stampaFinale(
                 "\n\tCon le armonie suonate dal liuto scritte sul pentagramma, il Drago si calma, riposando nel Castello. \n\tHai liberato Arcadia dalla minaccia del Drago, è festa in tutto il Regno, tutti festeggiano \n\tLuca, il nuovo Custode delle Armonie.\n\t\t\t\tRICONOSCIMENTI \n\t\t\tGrazie per aver giocato a Le Armonie del Custode!\n\t\t\t       Alessandro Pellegrino e Kevin Saracino");
 
-        labImage.setIcon(new ImageIcon(new ImageIcon("resource\\img\\scena_the_end_pixeled.png").getImage()
+        labImage.setIcon(new ImageIcon(new ImageIcon("resource/img/scena_the_end_pixeled.png").getImage()
                 .getScaledInstance(1000, 650, Image.SCALE_DEFAULT)));
         labImage.setBorder(javax.swing.BorderFactory.createLineBorder(WHITE, 4));
         macroPanel.add(labImage, BorderLayout.CENTER);

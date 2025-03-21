@@ -3,15 +3,15 @@ package learmoniedelcustode;
 import java.util.ArrayList;
 import java.util.List;
 
-import Mondo.Casella;
-import Other.GameDescription;
-import Other.GameObservable;
-import Other.GameObserver;
-import Other.GestioneDB;
-import Other.StampaTesto;
-import Parser.ParserOutput;
-import Tipi.Command;
-import Tipi.CommandType;
+import mondo.Casella;
+import other.GameDescription;
+import other.GameObservable;
+import other.GameObserver;
+import other.GestioneDB;
+import other.StampaTesto;
+import parser.ParserOutput;
+import tipi.Command;
+import tipi.CommandType;
 
 /**
  *

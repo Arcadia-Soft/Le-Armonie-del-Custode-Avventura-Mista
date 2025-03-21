@@ -1,4 +1,4 @@
-package Classifica;
+package classifica;
 
 import java.io.Serializable;
 

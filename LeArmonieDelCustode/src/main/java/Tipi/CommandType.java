@@ -1,4 +1,4 @@
-package Tipi;
+package tipi;
 
 /**
  *

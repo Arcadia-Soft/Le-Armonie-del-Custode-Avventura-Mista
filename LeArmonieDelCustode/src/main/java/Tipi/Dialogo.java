@@ -1,13 +1,14 @@
-package Tipi;
+package tipi;
 
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Other.GestioneDB;
+import other.GestioneDB;
 
-/** 
+/**
  * Classe Dialogo
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -26,7 +27,8 @@ public class Dialogo implements Serializable {
         this.messaggioRispErrata = "";
     }
 
-    public void setInfoDialogo(String dialogo, String risposta, String messaggioRispCorretta, String messaggioRispErrata) {
+    public void setInfoDialogo(String dialogo, String risposta, String messaggioRispCorretta,
+            String messaggioRispErrata) {
         this.dialogo = dialogo;
         this.risposta = risposta;
         this.messaggioRispCorretta = messaggioRispCorretta;
@@ -64,7 +66,8 @@ public class Dialogo implements Serializable {
     public void setTestoDialogo(String testo) {
         dialogo = testo;
     }
-    public void changeDialogo(){
+
+    public void changeDialogo() {
         try {
             GestioneDB.getInstance().changeDialogo(Dialogo.this);
         } catch (Exception e) {

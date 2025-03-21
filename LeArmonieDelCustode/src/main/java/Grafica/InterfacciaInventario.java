@@ -1,4 +1,4 @@
-package Grafica;
+package grafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,7 +8,7 @@ import java.awt.Toolkit;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
-import Tipi.Inventario;
+import tipi.Inventario;
 
 /**
  *
@@ -31,7 +31,7 @@ public class InterfacciaInventario extends javax.swing.JFrame {
         close = new javax.swing.JButton();
 
         setTitle("Le Armonie del Custode - Inventario");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         setPreferredSize(new Dimension(600, 550));
         getContentPane().setBackground(BACKGROUND_BLACK);
         setLocationRelativeTo(null);

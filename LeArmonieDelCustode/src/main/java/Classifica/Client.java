@@ -1,12 +1,12 @@
-package Classifica;
+package classifica;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import Eccezioni.GetClassificaException;
-import Eccezioni.SendRecordException;
+import eccezioni.GetClassificaException;
+import eccezioni.SendRecordException;
 
 /**
  * @author Alessandro Pellegrino
@@ -65,9 +65,10 @@ public class Client {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public void end() throws IOException, ClassNotFoundException{
+    public void end() throws IOException, ClassNotFoundException {
         try (Socket socket = new Socket(SERVER_ADDRESS, serverPort);
-                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream()); ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
+                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
             oos.writeObject("END");
             System.out.println(ois.readObject());
         } catch (IOException | ClassNotFoundException e) {

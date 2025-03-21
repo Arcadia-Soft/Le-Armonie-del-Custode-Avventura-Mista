@@ -1,17 +1,17 @@
-package Other;
+package other;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import Mondo.Casella;
-import Parser.ParserOutput;
-import Tipi.Command;
-import Tipi.CommandType;
-import Tipi.Dialogo;
-import Tipi.Inventario;
-import Tipi.Item;
+import mondo.Casella;
+import parser.ParserOutput;
+import tipi.Command;
+import tipi.CommandType;
+import tipi.Dialogo;
+import tipi.Inventario;
+import tipi.Item;
 
 public abstract class GameDescription implements Serializable {
 
@@ -55,20 +55,20 @@ public abstract class GameDescription implements Serializable {
     public Set<Item> getInventarioSet() {
         return inventario.getOggetti();
     }
-    
-    public Command getLastCommand(){
+
+    public Command getLastCommand() {
         return lastCommand;
     }
 
     public void setLastCommand(Command lastCommand) {
         this.lastCommand = lastCommand;
     }
-    
-    public Chrono getChrono(){
+
+    public Chrono getChrono() {
         return chrono;
     }
-    
-    public void setChrono(Chrono chrono){
+
+    public void setChrono(Chrono chrono) {
         this.chrono = chrono;
     }
 

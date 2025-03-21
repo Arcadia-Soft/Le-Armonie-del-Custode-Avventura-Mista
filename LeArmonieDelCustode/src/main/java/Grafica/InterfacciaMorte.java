@@ -1,4 +1,4 @@
-package Grafica;
+package grafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -41,18 +41,18 @@ public class InterfacciaMorte extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Le Armonie del Custode - Bad Ending :(");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         setResizable(false);
         setBackground(BLACK);
 
         macroPanel.setLayout(new java.awt.BorderLayout());
         macroPanel.setBackground(BLACK);
 
-        labWriting.setIcon(new ImageIcon(new ImageIcon("resource\\img\\writing_death.png").getImage()
+        labWriting.setIcon(new ImageIcon(new ImageIcon("resource/img/writing_death.png").getImage()
                 .getScaledInstance(800, 300, Image.SCALE_DEFAULT)));
         macroPanel.add(labWriting, java.awt.BorderLayout.CENTER);
 
-        labImage.setIcon(new ImageIcon(new ImageIcon("resource\\img\\death_pixeled.png").getImage()
+        labImage.setIcon(new ImageIcon(new ImageIcon("resource/img/death_pixeled.png").getImage()
                 .getScaledInstance(250, 450, Image.SCALE_DEFAULT)));
         labImage.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 10, 10, 10));
         macroPanel.add(labImage, java.awt.BorderLayout.WEST);

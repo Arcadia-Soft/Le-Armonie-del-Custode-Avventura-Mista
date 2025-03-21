@@ -1,4 +1,4 @@
-package Grafica;
+package grafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,9 +15,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import Classifica.Classifica;
-import Classifica.Client;
-import Eccezioni.GetClassificaException;
+import classifica.Classifica;
+import classifica.Client;
+import eccezioni.GetClassificaException;
 
 /**
  *
@@ -43,8 +43,8 @@ public class InterfacciaClassifica extends javax.swing.JFrame {
         underPanel = new javax.swing.JPanel();
         close = new javax.swing.JButton();
 
-        setTitle("Le Armonie del Custode - Classifica");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+        setTitle("Le Armonie del Custode - classifica");
+        setIconImage(Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         setPreferredSize(new Dimension(600, 550));
         getContentPane().setBackground(BACKGROUND_BLACK);
         setLocationRelativeTo(null);
@@ -124,7 +124,7 @@ public class InterfacciaClassifica extends javax.swing.JFrame {
         Client client = new Client();
         try {
             Classifica recordTracker = client.requestClassifica();
-            String[][] data = recordTracker.getRecordsAsArray();
+            String[][] data = recordTracker.getRecordsAsMatrix();
             for (int i = nonEditableModel.getRowCount() - 1; i >= 0; i--) {
                 nonEditableModel.removeRow(i);
             }

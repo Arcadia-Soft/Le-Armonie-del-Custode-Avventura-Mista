@@ -2,11 +2,11 @@ package learmoniedelcustode;
 
 import java.util.regex.Pattern;
 
-import Other.GameDescription;
-import Other.GameObserver;
-import Parser.ParserOutput;
-import Tipi.CommandType;
-import Tipi.Item;
+import other.GameDescription;
+import other.GameObserver;
+import parser.ParserOutput;
+import tipi.CommandType;
+import tipi.Item;
 
 public class PickUpObserver implements GameObserver {
 
@@ -29,7 +29,8 @@ public class PickUpObserver implements GameObserver {
                     if (quantity > 1) {
                         msg += "x" + quantity + " ";
                     }
-                    msg += Pattern.compile("^.").matcher(pickUpItem.getName()).replaceFirst(m -> m.group().toUpperCase());
+                    msg += Pattern.compile("^.").matcher(pickUpItem.getName())
+                            .replaceFirst(m -> m.group().toUpperCase());
 
                     description.getInventario().addOggetto(pickUpItem, quantity);
                     if (pickUpItem.getName().equals("pentagramma armonico")

@@ -1,4 +1,4 @@
-package Eccezioni;
+package eccezioni;
 
 public class GetClassificaException extends Exception {
 

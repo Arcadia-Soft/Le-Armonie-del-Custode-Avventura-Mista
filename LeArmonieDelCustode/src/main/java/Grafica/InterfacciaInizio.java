@@ -1,4 +1,4 @@
-package Grafica;
+package grafica;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import Classifica.Client;
-import Other.GestioneDB;
-import Other.Musica;
+import classifica.Client;
+import other.GestioneDB;
+import other.Musica;
 
 /**
  *
@@ -32,12 +32,12 @@ public class InterfacciaInizio extends javax.swing.JFrame {
     }
 
     private void initComponents() {
-        musica.playMusic("resource\\other\\menu_soundtrack.wav");
+        musica.playMusic("resource/other/menu_soundtrack.wav");
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 if (!musica.isPlaying())
-                    musica.playMusic("resource\\other\\menu_soundtrack.wav");
+                    musica.playMusic("resource/other/menu_soundtrack.wav");
             }
         });
 
@@ -45,7 +45,7 @@ public class InterfacciaInizio extends javax.swing.JFrame {
             @Override
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 if (!musica.isPlaying())
-                    musica.playMusic("resource\\other\\menu_soundtrack.wav");
+                    musica.playMusic("resource/other/menu_soundtrack.wav");
             }
 
             @Override
@@ -62,18 +62,19 @@ public class InterfacciaInizio extends javax.swing.JFrame {
                     c.end();
                     GestioneDB.getInstance().close();
                 } catch (IOException | ClassNotFoundException ex) {
-                    // Viene catturata questa eccezione quando si avvia solamente il maind di InterfacciaInizio
+                    // Viene catturata questa eccezione quando si avvia solamente il maind di
+                    // InterfacciaInizio
                     Logger.getLogger(InterfacciaInizio.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException e) {
-                    // TODO Auto-generated catch block
                     Logger.getLogger(InterfacciaInizio.class.getName()).log(Level.SEVERE, null, e);
                 }
             }
         });
 
         background = new javax.swing.JLabel();
-        background.setIcon(new ImageIcon(new ImageIcon("resource\\img\\main_menu_Luca_pixeled.png").getImage().getScaledInstance(1100, 700, Image.SCALE_DEFAULT)));
-        macroPanel = new javax.swing.JPanel(); 
+        background.setIcon(new ImageIcon(new ImageIcon("resource/img/main_menu_Luca_pixeled.png").getImage()
+                .getScaledInstance(1100, 700, Image.SCALE_DEFAULT)));
+        macroPanel = new javax.swing.JPanel();
         start = new javax.swing.JButton();
         load = new javax.swing.JButton();
         leaderboard = new javax.swing.JButton();
@@ -82,7 +83,7 @@ public class InterfacciaInizio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Le Armonie del Custode - Start Menu");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         setPreferredSize(new java.awt.Dimension(1100, 700));
         setResizable(false);
         getContentPane().add(background, java.awt.BorderLayout.CENTER);
@@ -93,7 +94,8 @@ public class InterfacciaInizio extends javax.swing.JFrame {
         start.setForeground(TEXT);
         start.setText("Inizia Gioco");
         start.setPreferredSize(new java.awt.Dimension(140, 23));
-        start.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\start_icon.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
+        start.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/start_icon.png").getImage().getScaledInstance(20,
+                20, Image.SCALE_DEFAULT)));
         start.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -107,7 +109,8 @@ public class InterfacciaInizio extends javax.swing.JFrame {
         load.setForeground(TEXT);
         load.setText("Carica Partita");
         load.setPreferredSize(new java.awt.Dimension(140, 23));
-        load.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\load_icon.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
+        load.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/load_icon.png").getImage().getScaledInstance(20,
+                20, Image.SCALE_DEFAULT)));
 
         fileChooser.setDialogTitle("Caricamento Salvataggio");
         fileChooser.setCurrentDirectory(new java.io.File("."));
@@ -126,8 +129,9 @@ public class InterfacciaInizio extends javax.swing.JFrame {
                         musica.stopMusica();
                         setVisible(false);
                     } catch (Exception e) {
-                        musica.playMusic("resource\\other\\menu_soundtrack.wav");
-                        JOptionPane.showMessageDialog(InterfacciaInizio.this, e.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
+                        musica.playMusic("resource/other/menu_soundtrack.wav");
+                        JOptionPane.showMessageDialog(InterfacciaInizio.this, e.getMessage(), "Errore",
+                                JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
@@ -136,9 +140,10 @@ public class InterfacciaInizio extends javax.swing.JFrame {
 
         leaderboard.setBackground(BACKGROUND);
         leaderboard.setForeground(TEXT);
-        leaderboard.setText("Classifica");
+        leaderboard.setText("classifica");
         leaderboard.setPreferredSize(new java.awt.Dimension(140, 23));
-        leaderboard.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\leaderboard_icon.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
+        leaderboard.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/leaderboard_icon.png").getImage()
+                .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         leaderboard.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -147,7 +152,8 @@ public class InterfacciaInizio extends javax.swing.JFrame {
                     classifica = new InterfacciaClassifica();
                     classifica.setVisible(true);
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(InterfacciaInizio.this, e.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(InterfacciaInizio.this, e.getMessage(), "Errore",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -156,7 +162,8 @@ public class InterfacciaInizio extends javax.swing.JFrame {
         exit.setBackground(BACKGROUND);
         exit.setForeground(TEXT);
         exit.setText("Esci");
-        exit.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\exit_icon.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
+        exit.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/exit_icon.png").getImage().getScaledInstance(20,
+                20, Image.SCALE_DEFAULT)));
         exit.setPreferredSize(new java.awt.Dimension(140, 23));
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -187,7 +194,7 @@ public class InterfacciaInizio extends javax.swing.JFrame {
             gioco.setVisible(true);
             setVisible(false);
         } catch (Exception e) {
-            musica.playMusic("resource\\other\\menu_soundtrack.wav");
+            musica.playMusic("resource/other/menu_soundtrack.wav");
             JOptionPane.showMessageDialog(this, e.getMessage(), "Errore", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -204,15 +211,16 @@ public class InterfacciaInizio extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfacciaInizio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+                | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InterfacciaInizio.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         }
 
         java.awt.EventQueue.invokeLater(() -> {
             try {
                 new InterfacciaInizio().setVisible(true);
             } catch (SQLException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         });

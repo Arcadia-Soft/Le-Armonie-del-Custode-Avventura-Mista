@@ -1,4 +1,4 @@
-package Eccezioni;
+package eccezioni;
 
 public class SendRecordException extends Exception {
 

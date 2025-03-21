@@ -1,4 +1,4 @@
-package Eccezioni;
+package eccezioni;
 
 public class GameNotAvailableException extends Exception {
 
@@ -6,5 +6,5 @@ public class GameNotAvailableException extends Exception {
     public String getMessage() {
         return "Errore nell'inizializzazione del gioco";
     }
-    
+
 }

@@ -1,10 +1,8 @@
-package Classifica;
+package classifica;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import Classifica.Record;
 
 /**
  * @author Alessandro Pellegrino
@@ -49,7 +47,7 @@ public class Classifica implements Serializable {
      * 
      * @return
      */
-    public String[][] getRecordsAsArray() {
+    public String[][] getRecordsAsMatrix() {
         String[][] array = new String[records.size()][3];
         for (int i = 0; i < records.size(); i++) {
             array[i][0] = records.get(i).getNome();

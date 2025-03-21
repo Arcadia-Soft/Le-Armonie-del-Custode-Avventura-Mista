@@ -1,4 +1,4 @@
-package Mondo;
+package mondo;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import Tipi.Item;
+import tipi.Item;
 
 /**
  *
@@ -194,7 +194,7 @@ public class Casella implements Serializable {
     public void setWest(Casella west) {
         this.west = west;
     }
-    
+
     /**
      *
      * @return
@@ -279,12 +279,13 @@ public class Casella implements Serializable {
         this.updated = updated;
     }
 
-    public String printItems(){
+    public String printItems() {
         String msg = "";
 
-        for(Item item : oggetti.keySet()) {
+        for (Item item : oggetti.keySet()) {
             if (item.isVisible()) {
-                msg += "    " + Pattern.compile("^.").matcher(item.getName()).replaceFirst(m -> m.group().toUpperCase()) + " x" + oggetti.get(item) + "\n";
+                msg += "    " + Pattern.compile("^.").matcher(item.getName()).replaceFirst(m -> m.group().toUpperCase())
+                        + " x" + oggetti.get(item) + "\n";
             }
         }
 
@@ -295,21 +296,22 @@ public class Casella implements Serializable {
         return msg;
     }
 
-    /* Prova funzionamento caselle
-    public static void main(String[] args) {
-        Casella c = new Casella(1, "Cucina",
-        "Cucina di casa tua, molto carina veramente.");
-        Casella Nord = new Casella(2, "Sala",
-        "Sala di casa tua, molto carina veramente.");
-        Casella Sud = new Casella(3, "Bagno",
-        "Bagno di casa tua, fa schifo veramente.");
-        
-        c.setNorth(Nord);
-        c.setSouth(Sud);
-        
-        System.out.println(c.getNorth().getnome());
-        System.out.println(c.getSouth().getnome());
-     }
+    /*
+     * Prova funzionamento caselle
+     * public static void main(String[] args) {
+     * Casella c = new Casella(1, "Cucina",
+     * "Cucina di casa tua, molto carina veramente.");
+     * Casella Nord = new Casella(2, "Sala",
+     * "Sala di casa tua, molto carina veramente.");
+     * Casella Sud = new Casella(3, "Bagno",
+     * "Bagno di casa tua, fa schifo veramente.");
+     * 
+     * c.setNorth(Nord);
+     * c.setSouth(Sud);
+     * 
+     * System.out.println(c.getNorth().getnome());
+     * System.out.println(c.getSouth().getnome());
+     * }
      */
 
 }

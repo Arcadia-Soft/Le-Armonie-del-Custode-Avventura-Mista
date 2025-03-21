@@ -1,4 +1,4 @@
-package Classifica;
+package classifica;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,7 +11,7 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Other.Starter;
+import other.Starter;
 
 /**
  * @author Alessandro Pellegrino
@@ -19,10 +19,8 @@ import Other.Starter;
  */
 public class Server {
 
-    private static final String FILE_NAME = System.getProperty("user.dir") + File.separator + "resource"
-            + java.io.File.separator + "classifica" + java.io.File.separator
-            + "classifica.dat";
-    private final Classifica Classifica;
+    private static final String FILE_NAME = System.getProperty("user.dir") + "/resource/classifica/classifica.dat";
+    private final Classifica classifica;
     private final ServerSocket serverSocket;
     private final int port = 6666;
 
@@ -31,7 +29,7 @@ public class Server {
      * @throws IOException
      */
     public Server() throws IOException {
-        Classifica = loadClassifica();
+        classifica = loadClassifica();
         serverSocket = new ServerSocket(port);
     }
 
@@ -53,7 +51,7 @@ public class Server {
      */
     private void saveClassifica() throws Exception {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
-            oos.writeObject(Classifica);
+            oos.writeObject(classifica);
         } catch (IOException e) {
             File f = new File(FILE_NAME);
             if (f.createNewFile())
@@ -77,7 +75,7 @@ public class Server {
                 switch (command) {
                     case "ADD_RECORD" -> {
                         Record record = (Record) ois.readObject();
-                        Classifica.addRecord(record);
+                        classifica.addRecord(record);
                         saveClassifica();
                         oos.writeObject("Record aggiunto: " + record);
                     }
@@ -90,7 +88,7 @@ public class Server {
                     }
                 }
             } catch (IOException | ClassNotFoundException e) {
-                throw e;
+                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }

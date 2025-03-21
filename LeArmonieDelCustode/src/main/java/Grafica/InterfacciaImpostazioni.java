@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Grafica;
+package grafica;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,7 +12,7 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-import Other.StampaTesto;
+import other.StampaTesto;
 
 /**
  *
@@ -35,11 +35,11 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
     public InterfacciaImpostazioni(JFrame parentFrame) {
         initComponents();
         this.parentFrame = parentFrame;
-        
-        if(!((InterfacciaGioco) parentFrame).getMusica().isPlaying()){
+
+        if (!((InterfacciaGioco) parentFrame).getMusica().isPlaying()) {
             ((InterfacciaGioco) parentFrame).getMusica().pausaMusica();
-                musicButton.setText("Play");
-                musicButton.setForeground(GREEN);
+            musicButton.setText("Play");
+            musicButton.setForeground(GREEN);
         }
     }
 
@@ -64,9 +64,9 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
         testoLento = new javax.swing.JButton();
         testoMedio = new javax.swing.JButton();
         testoVeloce = new javax.swing.JButton();
-        
+
         setTitle("Impostazioni");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         setSize(800, 600);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -77,24 +77,25 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
 
         // Gestione pulsante musica
         musicButton.setText("Mute");
-        musicButton.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\music_icon.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
+        musicButton.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/music_icon.png").getImage()
+                .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         musicButton.setBackground(BACKGROUND_BEIGE);
         musicButton.setForeground(RED);
         musicButton.setPreferredSize(new java.awt.Dimension(72, 30));
 
         musicButton.addMouseListener(new java.awt.event.MouseAdapter() {
-        @Override
-        public void mouseClicked (java.awt.event.MouseEvent evt) {
-            if (((InterfacciaGioco) parentFrame).getMusica().isPlaying()) {
-                ((InterfacciaGioco) parentFrame).getMusica().pausaMusica();
-                musicButton.setText("Play");
-                musicButton.setForeground(GREEN);
-            } else {
-                ((InterfacciaGioco) parentFrame).getMusica().riprendiMusica();
-                musicButton.setText("Mute");
-                musicButton.setForeground(RED);
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                if (((InterfacciaGioco) parentFrame).getMusica().isPlaying()) {
+                    ((InterfacciaGioco) parentFrame).getMusica().pausaMusica();
+                    musicButton.setText("Play");
+                    musicButton.setForeground(GREEN);
+                } else {
+                    ((InterfacciaGioco) parentFrame).getMusica().riprendiMusica();
+                    musicButton.setText("Mute");
+                    musicButton.setForeground(RED);
+                }
             }
-        }
         });
 
         labVolume.setText("Volume");
@@ -108,19 +109,23 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
         volumeUp.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (((InterfacciaGioco) parentFrame).getMusica().isPlaying() && ((InterfacciaGioco) parentFrame).getMusica().getVolume() + 5f < 6f )
-                    ((InterfacciaGioco) parentFrame).getMusica().setVolume(((InterfacciaGioco) parentFrame).getMusica().getVolume() + 5f);
+                if (((InterfacciaGioco) parentFrame).getMusica().isPlaying()
+                        && ((InterfacciaGioco) parentFrame).getMusica().getVolume() + 5f < 6f)
+                    ((InterfacciaGioco) parentFrame).getMusica()
+                            .setVolume(((InterfacciaGioco) parentFrame).getMusica().getVolume() + 5f);
             }
         });
-        
+
         volumeDown.setText("-");
         volumeDown.setBackground(BLACK);
         volumeDown.setForeground(WHITE);
         volumeDown.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (((InterfacciaGioco) parentFrame).getMusica().isPlaying() && ((InterfacciaGioco) parentFrame).getMusica().getVolume() - 5f > -80f)
-                    ((InterfacciaGioco) parentFrame).getMusica().setVolume(((InterfacciaGioco) parentFrame).getMusica().getVolume() - 5f);
+                if (((InterfacciaGioco) parentFrame).getMusica().isPlaying()
+                        && ((InterfacciaGioco) parentFrame).getMusica().getVolume() - 5f > -80f)
+                    ((InterfacciaGioco) parentFrame).getMusica()
+                            .setVolume(((InterfacciaGioco) parentFrame).getMusica().getVolume() - 5f);
             }
         });
 
@@ -173,7 +178,7 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
         testoPanel.add(testoVeloce, java.awt.BorderLayout.PAGE_END);
 
         macroPanel.add(testoPanel, java.awt.BorderLayout.SOUTH);
-        
+
         closeButton.setBackground(BACKGROUND_BEIGE);
         closeButton.setForeground(TEXT);
         closeButton.setText("Chiudi");
@@ -196,7 +201,7 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
                 dispose();
             }
         });
-        //macroPanel.add(closeButton, java.awt.BorderLayout.SOUTH);
+        // macroPanel.add(closeButton, java.awt.BorderLayout.SOUTH);
 
         underPanel.setBackground(WHITE);
 
@@ -206,7 +211,7 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
         pack();
     }
 
-    private void closeButtonClose (java.awt.event.MouseEvent evt) {
+    private void closeButtonClose(java.awt.event.MouseEvent evt) {
         this.dispose();
     }
 

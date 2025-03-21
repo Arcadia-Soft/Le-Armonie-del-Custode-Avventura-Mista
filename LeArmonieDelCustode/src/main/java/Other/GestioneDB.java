@@ -1,4 +1,4 @@
-package Other;
+package other;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -17,9 +17,9 @@ import java.util.Set;
 
 import org.h2.tools.RunScript;
 
-import Mondo.Casella;
-import Tipi.Dialogo;
-import Tipi.Item;
+import mondo.Casella;
+import tipi.Dialogo;
+import tipi.Item;
 
 public class GestioneDB {
 

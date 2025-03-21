@@ -2,10 +2,10 @@ package learmoniedelcustode;
 
 import javax.swing.ImageIcon;
 
-import Other.GameDescription;
-import Other.GameObserver;
-import Parser.ParserOutput;
-import Tipi.CommandType;
+import other.GameDescription;
+import other.GameObserver;
+import parser.ParserOutput;
+import tipi.CommandType;
 
 public class HelpObserver implements GameObserver {
 
@@ -13,7 +13,7 @@ public class HelpObserver implements GameObserver {
     public String update(GameDescription description, ParserOutput parserOutput) {
         String msg = "";
         if (parserOutput.getCommand().getType() == CommandType.HELP) {
-            String imagePath = "resource\\img\\help_pixeled.png";
+            String imagePath = "resource/img/help_pixeled.png";
             msg = """
                     Comandi:
                         - Aiuto | Help: mostra questo script;

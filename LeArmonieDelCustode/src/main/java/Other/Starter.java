@@ -1,12 +1,12 @@
-package Other;
+package other;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Classifica.Server;
-import Grafica.InterfacciaInizio;
+import classifica.Server;
+import grafica.InterfacciaInizio;
 
 public class Starter {
     public static void main(String[] args) {

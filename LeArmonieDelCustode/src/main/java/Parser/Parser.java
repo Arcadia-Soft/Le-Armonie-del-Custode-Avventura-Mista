@@ -1,13 +1,13 @@
-package Parser;
+package parser;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
-import Grafica.InterfacciaGioco;
-import Other.Utils;
-import Tipi.Command;
-import Tipi.CommandType;
+import grafica.InterfacciaGioco;
+import other.Utils;
+import tipi.Command;
+import tipi.CommandType;
 
 /**
  *

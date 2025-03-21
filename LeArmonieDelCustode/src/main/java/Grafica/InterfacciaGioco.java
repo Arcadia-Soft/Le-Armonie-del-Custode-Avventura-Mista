@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Grafica;
+package grafica;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,15 +24,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.text.DefaultCaret;
 
-import Eccezioni.GameFileException;
-import Eccezioni.GameNotAvailableException;
-import Other.Chrono;
-import Other.GameDescription;
-import Other.Musica;
-import Other.StampaTesto;
-import Other.Utils;
-import Parser.Parser;
-import Parser.ParserOutput;
+import eccezioni.GameFileException;
+import eccezioni.GameNotAvailableException;
+import other.Chrono;
+import other.GameDescription;
+import other.Musica;
+import other.StampaTesto;
+import other.Utils;
+import parser.Parser;
+import parser.ParserOutput;
 import learmoniedelcustode.LeArmonieDelCustode;
 
 /**
@@ -42,7 +42,7 @@ import learmoniedelcustode.LeArmonieDelCustode;
  */
 public class InterfacciaGioco extends javax.swing.JFrame {
     private final Font FONT = new Font("Serif", Font.PLAIN, 20);
-    private final String LUCAPG = "resource\\img\\inizio_Luca_pixeled.png";
+    private final String LUCAPG = "resource/img/inizio_Luca_pixeled.png";
 
     private final Color BACKGROUND_BEIGE = new Color(237, 232, 208);
     private final Color BACKGROUND_BLACK = new Color(54, 69, 79);
@@ -89,7 +89,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         try {
 
             try {
-                Set<String> stopwords = Utils.loadFileListInSet(new File("resource\\other\\stopwords"));
+                Set<String> stopwords = Utils.loadFileListInSet(new File("resource/other/stopwords"));
                 parser = new Parser(stopwords);
             } catch (IOException ex) {
                 throw ex;
@@ -164,7 +164,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         impostazioniItem = new javax.swing.JMenuItem();
 
         confermaChiusura.setIconImage(
-                Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+                Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         confermaChiusura.setResizable(false);
         confermaChiusura.setSize(new java.awt.Dimension(700, 400));
         confermaChiusura.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -178,7 +178,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         panel.setLayout(new java.awt.BorderLayout());
 
         imageDeathLabel.setBackground(BACKGROUND_BEIGE);
-        imageDeathLabel.setIcon(new ImageIcon(new ImageIcon("resource\\img\\exit_pixeled.png").getImage()
+        imageDeathLabel.setIcon(new ImageIcon(new ImageIcon("resource/img/exit_pixeled.png").getImage()
                 .getScaledInstance(240, 300, Image.SCALE_DEFAULT)));
         imageDeathLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panel.add(imageDeathLabel, java.awt.BorderLayout.WEST);
@@ -187,7 +187,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
 
         jButton1.setBackground(BACKGROUND_BEIGE);
         jButton1.setText("Si");
-        jButton1.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\yes_icon.png").getImage()
+        jButton1.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/yes_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -199,7 +199,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
 
         jButton2.setBackground(BACKGROUND_BEIGE);
         jButton2.setText("No");
-        jButton2.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\no_icon.png").getImage()
+        jButton2.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/no_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -224,7 +224,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Le Armonie del Custode");
-        setIconImage(Toolkit.getDefaultToolkit().getImage("resource\\img\\logo_Arcadia.png"));
+        setIconImage(Toolkit.getDefaultToolkit().getImage("resource/img/logo_Arcadia.png"));
         setResizable(false);
 
         macroPanel.setBackground(BACKGROUND_BLACK);
@@ -266,7 +266,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         skipButton.setBackground(BACKGROUND_BEIGE);
         skipButton.setForeground(TEXT);
         skipButton.setText("Skip");
-        skipButton.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\skip_icon.png").getImage()
+        skipButton.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/skip_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         skipButton.setPreferredSize(new java.awt.Dimension(90, 30));
         skipButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -279,7 +279,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
 
         inventarioButton.setBackground(BACKGROUND_BEIGE);
         inventarioButton.setForeground(TEXT);
-        inventarioButton.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\backpack_icon.png").getImage()
+        inventarioButton.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/backpack_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         inventarioButton.setText("Inventario");
         inventarioButton.setPreferredSize(new java.awt.Dimension(150, 30));
@@ -293,7 +293,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
 
         impostazioniItem.setBackground(BACKGROUND_BEIGE);
         impostazioniItem.setForeground(TEXT);
-        impostazioniItem.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\options_icon.png").getImage()
+        impostazioniItem.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/options_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         impostazioniItem.setText("Impostazioni");
         impostazioniItem.setPreferredSize(new java.awt.Dimension(105, 30));
@@ -302,7 +302,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         // JMenu tendina = new JMenu("Opzioni");
         tendina.setText("Opzioni");
         tendina.setPreferredSize(new java.awt.Dimension(90, 30));
-        tendina.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\menu_icon.png").getImage()
+        tendina.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/menu_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         tendina.setBorder(new javax.swing.border.LineBorder(WHITE, 4));
         tendina.setBackground(BACKGROUND_BEIGE);
@@ -349,10 +349,10 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         setJMenuBar(menuBar);
 
         // Avvio musica
-        music.playMusic("resource\\other\\background_music.wav");
+        music.playMusic("resource/other/background_music.wav");
 
         // Gestione pulsante musica
-        musicButton.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\music_icon.png").getImage()
+        musicButton.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/music_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         musicButton.setText("Mute");
         musicButton.setBackground(BACKGROUND_BEIGE);
@@ -404,7 +404,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         esciButton.setBackground(BACKGROUND_BEIGE);
         esciButton.setForeground(TEXT);
         esciButton.setText("Esci");
-        esciButton.setIcon(new ImageIcon(new ImageIcon("resource\\img\\icons\\exit_icon.png").getImage()
+        esciButton.setIcon(new ImageIcon(new ImageIcon("resource/img/icons/exit_icon.png").getImage()
                 .getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
         esciButton.setPreferredSize(new java.awt.Dimension(90, 30));
         esciButton.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -1,10 +1,9 @@
 package learmoniedelcustode;
 
-import Other.GameDescription;
-import Other.GameObserver;
-import Parser.ParserOutput;
-import Tipi.CommandType;
-
+import other.GameDescription;
+import other.GameObserver;
+import parser.ParserOutput;
+import tipi.CommandType;
 
 public class TheEndObserver implements GameObserver {
 
