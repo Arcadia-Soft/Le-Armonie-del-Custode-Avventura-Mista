@@ -242,9 +242,9 @@ INSERT INTO Oggetto(id, nome, descrizione, quantita, pickable, visible)
 VALUES
 (1, 'Moneta d''Oro', 'La valuta corrente del regno di Arcadia, sopra ci sono incise delle strane rune.', 3, 1, 1),
 (2, 'Coltello', 'Un coltello di ferro, decisamente tagliente.', 1, 0, 0),
-(3, 'Ballata del Montone', 'Un foglio con scritto il tipico ballo del regno, DUE passi AVANTI, DUE passi INDIETRO, UN passo a SINISTRA, UN passo a DESTRA.', 1, 0, 0),
+(3, 'Ballata Montone', 'Un foglio con scritto il tipico ballo del regno, DUE passi AVANTI, DUE passi INDIETRO, UN passo a SINISTRA, UN passo a DESTRA.', 1, 0, 0),
 (4, 'Liuto Leggendario', 'Il leggendario Liuto d''argento, precedentemente posseduto dall''antico Custode.', 1, 1, 1),
-(5, 'Chiave del Tempio', 'Una chiave d''oro, molto pesante, ricorda la forma di una chiave di violino', 1, 0, 1),
+(5, 'Chiave Tempio', 'Una chiave d''oro, molto pesante, ricorda la forma di una chiave di violino', 1, 0, 1),
 (6, 'Pentagramma Armonico', 'Un pentagramma scritto su una seta purissima, incise le note musicali della leggendaria Armonia del Custode', 1, 1, 1);
 
 

@@ -70,9 +70,17 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         mainComponents(false, null);
 
         // DEBUG per finire il gioco
-        // game.getInventario().addOggetto(new Item("liuto leggendario"), 1);
-        // game.getInventario().addOggetto(new Item("pentagramma armonico"), 1);
-        // game.getInventario().addOggetto(new Item("chiave del tempio"), 1);
+        // game.getInventario().addOggetto(new tipi.Item("liuto leggendario"), 1);
+        // game.getInventario().addOggetto(new tipi.Item("pentagramma armonico"), 1);
+        // game.getInventario().addOggetto(new tipi.Item("chiave del tempio"), 1);
+        // game.getCaselle().stream()
+        // .filter(c -> c.getId() == 106 || c.getId() == 107)
+        // .forEach(c -> {
+        //     if (c.getId() == 106)
+        //         c.setUpdated(true);
+        //     else if (c.getId() == 107)
+        //         c.setEnterable(true);
+        // });
     }
 
     public InterfacciaGioco(JFrame parentFrame, File f) throws Exception {
@@ -464,7 +472,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
     }
 
     private void elaborateInput(java.awt.event.ActionEvent evt) {
-        String input = textBox.getText();
+        String input = textBox.getText().toLowerCase().trim();
         if (!input.isBlank()) {
             textArea.append(input + "\n");
             textBox.setText("");

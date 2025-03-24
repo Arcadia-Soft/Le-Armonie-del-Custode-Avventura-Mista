@@ -73,8 +73,8 @@ public class UseObserver implements GameObserver {
                         }
 
                         case 107 -> {
-                            if (nameOBJ.equals("liuto leggendario") || nameOBJ.equals("liuto")
-                                    && description.getInventario().contains(new Item("pentagramma armonico"))) {
+                            if ((nameOBJ.equals("liuto leggendario") || nameOBJ.equals("liuto"))
+                                    && description.getInventario().contains("pentagramma")) {
                                 parserOutput.setCommand(new Command(CommandType.THE_END, null));
                             } else {
                                 msg = "Non puoi usare l'oggetto " + nameOBJ + " qui, sbrigati!";
