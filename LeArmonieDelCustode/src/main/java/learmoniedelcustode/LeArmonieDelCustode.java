@@ -14,7 +14,11 @@ import tipi.Command;
 import tipi.CommandType;
 
 /**
- *
+ * Classe principale del gioco "Le Armonie Del Custode" che gestisce lo stato del gioco, i comandi e le interazioni con gli observer.
+ * 
+ * Implementa l'inizializzazione del gioco, la gestione dei comandi e il pattern observer per gli eventi di gioco.
+ * Estende GameDescription e implementa GameObservable per fornire le meccaniche di base del gioco.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */

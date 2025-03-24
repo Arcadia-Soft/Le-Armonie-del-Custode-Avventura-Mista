@@ -3,6 +3,10 @@ package classifica;
 import java.io.Serializable;
 
 /**
+ * Classe che rappresenta un record nella classifica di gioco.
+ * Contiene informazioni sul nome del giocatore, il tempo impiegato per completare il gioco
+ * e la data di completamento.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -13,10 +17,11 @@ public class Record implements Serializable{
     private final String data;
 
     /**
-     * Metodo costruttore della classe Record
-     * @param nome
-     * @param timeTaken
-     * @param data
+     * Costruttore della classe Record.
+     * 
+     * @param nome Nome del giocatore
+     * @param timeTaken Tempo impiegato in millisecondi
+     * @param data Data di completamento del gioco
      */
     public Record(String nome, long timeTaken, String data) {
         this.nome = nome;
@@ -25,32 +30,36 @@ public class Record implements Serializable{
     }
 
     /**
-     * Metodo che restituisce il tempo
-     * @return
+     * Restituisce il nome del giocatore.
+     * 
+     * @return Nome del giocatore
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * Metodo che restituisce il tempo registrato
-     * @return
+     * Restituisce il tempo impiegato in millisecondi.
+     * 
+     * @return Tempo impiegato in millisecondi
      */
     public long getTimeTaken() {
         return timeTaken;
     }
 
     /**
-     * Metodo che restituisce la data del record
-     * @return
+     * Restituisce la data di completamento del gioco.
+     * 
+     * @return Data di completamento
      */
     public String getData() {
         return data;
     }
 
     /**
-     * Metodo che restituisce il tempo formattato (hh:mm:ss)
-     * @return record
+     * Formatta il tempo impiegato nel formato ore:minuti:secondi (hh:mm:ss).
+     * 
+     * @return Tempo formattato come stringa
      */
     public String timeFormatted() {
         long second = (timeTaken / 1000) % 60;
@@ -59,11 +68,12 @@ public class Record implements Serializable{
         return String.format("%02d:%02d:%02d", hour, minute, second);
     }
 
-    
-    /** 
-    * Metodo che restistuice il Record formattato Record{name = '', timeTaken = '', data = ''} (DEBUG)
-    * @return record
-    */
+    /**
+     * Restituisce una rappresentazione testuale del record.
+     * Utile per scopi di debug.
+     * 
+     * @return Stringa che rappresenta il record
+     */
     @Override
     public String toString() {
         return "Record{" +
@@ -72,5 +82,4 @@ public class Record implements Serializable{
                 ", data= " + data +
                 '}';
     }
-
 }

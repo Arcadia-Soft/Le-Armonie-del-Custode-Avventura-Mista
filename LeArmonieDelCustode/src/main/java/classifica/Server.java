@@ -14,6 +14,9 @@ import java.util.logging.Logger;
 import other.Starter;
 
 /**
+ * Classe Server che gestisce la persistenza e la distribuzione dei dati della classifica.
+ * Si occupa di salvare e caricare la classifica da file e di gestire le richieste dei client.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -25,8 +28,10 @@ public class Server {
     private final int port = 6666;
 
     /**
+     * Costruttore che inizializza il server caricando la classifica esistente
+     * e creando un socket server sulla porta specificata.
      * 
-     * @throws IOException
+     * @throws IOException Se si verifica un errore durante la creazione del socket server
      */
     public Server() throws IOException {
         classifica = loadClassifica();
@@ -34,8 +39,10 @@ public class Server {
     }
 
     /**
+     * Carica la classifica dal file di salvataggio.
+     * Se il file non esiste o si verifica un errore, crea una nuova classifica vuota.
      * 
-     * @return
+     * @return La classifica caricata o una nuova classifica se il caricamento fallisce
      */
     private Classifica loadClassifica() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
@@ -46,8 +53,10 @@ public class Server {
     }
 
     /**
+     * Salva la classifica corrente nel file di salvataggio.
+     * Se il file non esiste, tenta di crearlo.
      * 
-     * @throws Exception
+     * @throws Exception Se non è possibile salvare la classifica
      */
     private void saveClassifica() throws Exception {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
@@ -62,8 +71,10 @@ public class Server {
     }
 
     /**
+     * Avvia il server e gestisce le richieste dei client in un ciclo infinito.
+     * Supporta i comandi: ADD_RECORD, GET_CLASSIFICA e END.
      * 
-     * @throws Exception
+     * @throws Exception Se si verifica un errore durante l'avvio del server
      */
     public void start() throws Exception {
         System.out.println("Server in ascolto...");
@@ -94,9 +105,11 @@ public class Server {
     }
 
     /**
+     * Metodo main per avviare il server come applicazione standalone.
+     * Tenta di avviare il server fino a 5 volte in caso di fallimento.
      * 
-     * @param args
-     * @throws Exception
+     * @param args Argomenti della linea di comando (non utilizzati)
+     * @throws Exception Se si verifica un errore durante l'avvio del server
      */
     public static void main(String[] args) throws Exception {
         try {

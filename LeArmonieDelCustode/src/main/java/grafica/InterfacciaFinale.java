@@ -20,7 +20,10 @@ import other.Musica;
 import other.StampaTesto;
 
 /**
- *
+ * Classe che implementa l'interfaccia grafica mostrata al completamento del gioco.
+ * Visualizza un'immagine finale, un messaggio di congratulazioni e invia il record
+ * del giocatore al server.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -35,6 +38,12 @@ public class InterfacciaFinale extends javax.swing.JFrame {
 
     private Musica music = new Musica();
 
+    /**
+     * Costruttore che inizializza l'interfaccia finale e invia il record al server.
+     * 
+     * @param parentFrame Il frame genitore (interfaccia di gioco)
+     * @param time Il tempo impiegato per completare il gioco
+     */
     public InterfacciaFinale(JFrame parentFrame, long time) {
         initComponents();
 

@@ -1,23 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package other;
 
 import parser.ParserOutput;
 
 /**
- *
- * @author Alessandro Pellegrino
- * @author Kevin Saracino
+ * Interfaccia che definisce un osservatore del gioco secondo il pattern Observer.
+ * Viene utilizzata per aggiornare la vista quando lo stato del gioco cambia.
+ * 
+ * @author pierpaolo
  */
 public interface GameObserver {
 
     /**
-     *
-     * @param description
-     * @param parserOutput
-     * @return
+     * Metodo chiamato quando lo stato del gioco viene aggiornato.
+     * 
+     * @param description la descrizione aggiornata del gioco
+     * @param parserOutput l'output del parser che ha causato l'aggiornamento
+     * @return una stringa contenente il risultato dell'aggiornamento
      */
     public String update(GameDescription description, ParserOutput parserOutput);
 

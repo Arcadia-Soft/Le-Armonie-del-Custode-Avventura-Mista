@@ -15,7 +15,9 @@ import javax.swing.JFrame;
 import other.StampaTesto;
 
 /**
- *
+ * Classe che implementa l'interfaccia grafica per le impostazioni del gioco.
+ * Permette di regolare il volume della musica e la velocità del testo.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -30,7 +32,9 @@ public class InterfacciaImpostazioni extends javax.swing.JFrame {
     private final JFrame parentFrame;
 
     /**
-     * Creates new form InterfacciaImpostazioni
+     * Costruttore che inizializza l'interfaccia delle impostazioni.
+     * 
+     * @param parentFrame Il frame genitore (interfaccia di gioco)
      */
     public InterfacciaImpostazioni(JFrame parentFrame) {
         initComponents();

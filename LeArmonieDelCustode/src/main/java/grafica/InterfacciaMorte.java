@@ -9,7 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
- *
+ * Classe che implementa l'interfaccia grafica mostrata quando il giocatore muore.
+ * Visualizza un'immagine e un messaggio di game over.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -18,6 +20,11 @@ public class InterfacciaMorte extends javax.swing.JFrame {
     private final Color WHITE = new Color(250, 249, 246);
     private final JFrame parentFrame;
 
+    /**
+     * Costruttore che inizializza l'interfaccia di morte.
+     * 
+     * @param parentFrame Il frame genitore (interfaccia di gioco)
+     */
     public InterfacciaMorte(JFrame parentFrame) {
         initComponents();
 

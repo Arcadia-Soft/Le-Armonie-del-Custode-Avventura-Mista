@@ -2,18 +2,28 @@ package other;
 
 import java.io.Serializable;
 
+/**
+ * Classe che implementa un cronometro per tenere traccia del tempo di gioco.
+ * Fornisce funzionalità per avviare, fermare, resettare e formattare il tempo trascorso.
+ * 
+ * @author Alessandro Pellegrino
+ * @author Kevin Saracino
+ */
 public class Chrono implements Serializable {
     private Long startTime;
     private Long endTime;
     private Long elapsedTime;
     private boolean isRunning;
 
+    /**
+     * Costruttore che inizializza un nuovo cronometro resettato.
+     */
     public Chrono() {
         reset();
     }
 
     /**
-     * Il metodo start() inizializza il cronometro.
+     * Avvia il cronometro se non è già in esecuzione.
      */
     public void start() {
         if (!isRunning) {
@@ -22,6 +32,12 @@ public class Chrono implements Serializable {
         }
     }
 
+    /**
+     * Riavvia il cronometro con un tempo già trascorso.
+     * Utile per riprendere un cronometro da un salvataggio.
+     * 
+     * @param elapsedTime Tempo già trascorso in millisecondi
+     */
     public void startAgain(long elapsedTime) {
         if (!isRunning) {
             startTime = System.currentTimeMillis();
@@ -31,7 +47,7 @@ public class Chrono implements Serializable {
     }
 
     /**
-     * Il metodo stop() ferma il cronometro.
+     * Ferma il cronometro se è in esecuzione.
      */
     public void stop() {
         if (isRunning) {
@@ -42,7 +58,7 @@ public class Chrono implements Serializable {
     }
 
     /**
-     * Il metodo reset() resetta il cronometro.
+     * Resetta il cronometro a zero.
      */
     public void reset() {
         startTime = 0L;
@@ -52,9 +68,9 @@ public class Chrono implements Serializable {
     }
 
     /**
-     * Il metodo getElapsedTime() restituisce il tempo trascorso.
+     * Restituisce il tempo trascorso in millisecondi.
      * 
-     * @return tempo trascorso
+     * @return Tempo trascorso in millisecondi
      */
     public long getElapsedTime() {
         if (isRunning) {
@@ -64,16 +80,16 @@ public class Chrono implements Serializable {
     }
 
     /**
-     * Il metodo setElapsedTime() imposta il tempo trascorso.
+     * Imposta il tempo trascorso.
      * 
-     * @param elapsedTime tempo trascorso
+     * @param elapsedTime tempo trascorso in millisecondi
      */
     public void setElapsedTime(long elapsedTime) {
         this.elapsedTime = elapsedTime;
     }
 
     /**
-     * Il metodo isRunning() restituisce true se il cronometro è in esecuzione.
+     * Restituisce true se il cronometro è in esecuzione.
      * 
      * @return true se il cronometro è in esecuzione, false altrimenti
      */
@@ -83,17 +99,16 @@ public class Chrono implements Serializable {
     }
 
     /**
-     * Il metodo getStartTime() restituisce il tempo di inizio.
+     * Restituisce il tempo di inizio.
      * 
-     * @return tempo di inizio
+     * @return tempo di inizio del cronometro
      */
     public long getStartTime() {
         return startTime;
     }
 
     /**
-     * Il metodo getTimeFormatted() restituisce il tempo formattato in maniera
-     * leggibile nel formato hh:mm:ss.
+     * Restituisce il tempo formattato in maniera leggibile nel formato hh:mm:ss.
      * 
      * @return tempo formattato
      */

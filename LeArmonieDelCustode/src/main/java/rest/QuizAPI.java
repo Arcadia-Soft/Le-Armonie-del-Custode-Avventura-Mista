@@ -13,21 +13,39 @@ import com.google.gson.Gson;
 
 import tipi.Dialogo;
 
+/**
+ * Classe che gestisce le chiamate API per ottenere domande quiz da OpenTDB.
+ * 
+ * @author Alessandro Pellegrino
+ * @author Kevin Saracino
+ */
 public class QuizAPI {
 
+	/**
+	 * Classe interna che rappresenta la struttura della risposta API.
+	 */
 	private class ResponseAPI {
 		private float response_code;
 		List<Results> results = new ArrayList<>();
 
+		/**
+		 * @return il codice di risposta dell'API
+		 */
 		public float getResponse_code() {
 			return response_code;
 		}
 
+		/**
+		 * @return la lista dei risultati ottenuti dall'API
+		 */
 		public List<Results> getResults() {
 			return results;
 		}
 	}
 
+	/**
+	 * Classe che rappresenta la struttura di un singolo risultato quiz.
+	 */
 	public class Results {
 		private String type;
 		private String difficulty;
@@ -36,57 +54,95 @@ public class QuizAPI {
 		private String correct_answer;
 		private List<String> incorrect_answers;
 
-		// Getter Methods
+		/**
+		 * @return la lista delle risposte errate
+		 */
 		public List<String> getIncorrect_answers() {
 			return incorrect_answers;
 		}
 
+		/**
+		 * @param incorrect_answers la lista delle risposte errate da impostare
+		 */
 		public void setIncorrect_answers(List<String> incorrect_answers) {
 			this.incorrect_answers = incorrect_answers;
 		}
 
+		/**
+		 * @return il tipo di domanda
+		 */
 		public String getType() {
 			return type;
 		}
 
+		/**
+		 * @return la difficoltà della domanda
+		 */
 		public String getDifficulty() {
 			return difficulty;
 		}
 
+		/**
+		 * @return la categoria della domanda
+		 */
 		public String getCategory() {
 			return category;
 		}
 
+		/**
+		 * @return il testo della domanda
+		 */
 		public String getQuestion() {
 			return question;
 		}
 
+		/**
+		 * @return la risposta corretta
+		 */
 		public String getCorrect_answer() {
 			return correct_answer;
 		}
 
-		// Setter Methods
+		/**
+		 * @param type il tipo di domanda da impostare
+		 */
 		public void setType(String type) {
 			this.type = type;
 		}
 
+		/**
+		 * @param difficulty la difficoltà da impostare
+		 */
 		public void setDifficulty(String difficulty) {
 			this.difficulty = difficulty;
 		}
 
+		/**
+		 * @param category la categoria da impostare
+		 */
 		public void setCategory(String category) {
 			this.category = category;
 		}
 
+		/**
+		 * @param question la domanda da impostare
+		 */
 		public void setQuestion(String question) {
 			this.question = question;
 		}
 
+		/**
+		 * @param correct_answer la risposta corretta da impostare
+		 */
 		public void setCorrect_answer(String correct_answer) {
 			this.correct_answer = correct_answer;
 		}
 	}
 
+	/**
+	 * Effettua una chiamata API a OpenTDB per ottenere una domanda quiz.
+	 * @return l'oggetto ResponseAPI contenente la risposta dell'API
+	 */
 	private static ResponseAPI getResponseAPI() {
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("https://opentdb.com/api.php");
@@ -99,6 +155,11 @@ public class QuizAPI {
 		return gson.fromJson(jsonString, ResponseAPI.class);
 	}
 
+	/**
+	 * Ottiene una domanda quiz e la formatta nel dialogo del gioco.
+	 * @param dialogo l'oggetto Dialogo da popolare con la domanda quiz
+	 * @return l'oggetto Dialogo aggiornato con la domanda quiz
+	 */
 	public static Dialogo getQuiz(Dialogo dialogo) {
 		ResponseAPI r;
 		int maxRequest = 5;

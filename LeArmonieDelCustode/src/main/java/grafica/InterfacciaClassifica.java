@@ -20,7 +20,9 @@ import classifica.Client;
 import eccezioni.GetClassificaException;
 
 /**
- *
+ * Classe che implementa l'interfaccia grafica per visualizzare la classifica dei giocatori.
+ * Mostra una tabella con i nomi dei giocatori, i tempi impiegati e le date di completamento.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -33,6 +35,13 @@ public class InterfacciaClassifica extends javax.swing.JFrame {
     private JTable classifica;
     private DefaultTableModel nonEditableModel;
 
+    /**
+     * Classe che implementa l'interfaccia grafica per visualizzare la classifica dei giocatori.
+     * Mostra una tabella con i nomi dei giocatori, i tempi impiegati e le date di completamento.
+     * 
+     * @author Alessandro Pellegrino
+     * @author Kevin Saracino
+     */
     public InterfacciaClassifica() throws Exception {
         initComponents();
         getData();

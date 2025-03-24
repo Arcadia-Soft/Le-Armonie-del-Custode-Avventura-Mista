@@ -9,6 +9,9 @@ import eccezioni.GetClassificaException;
 import eccezioni.SendRecordException;
 
 /**
+ * Classe Client che gestisce la comunicazione con il server per l'invio e la ricezione
+ * dei dati relativi alla classifica di gioco.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -18,9 +21,10 @@ public class Client {
     private final int serverPort = 6666;
 
     /**
+     * Invia un record al server per aggiungerlo alla classifica.
      * 
-     * @param record
-     * @throws Exception
+     * @param record Il record da inviare al server
+     * @throws Exception Se si verifica un errore durante l'invio del record
      */
     public void sendRecord(Record record) throws Exception {
         try (Socket socket = new Socket(SERVER_ADDRESS, serverPort);
@@ -38,9 +42,10 @@ public class Client {
     }
 
     /**
+     * Richiede la classifica completa dal server.
      * 
-     * @return
-     * @throws Exception
+     * @return La classifica ricevuta dal server
+     * @throws Exception Se si verifica un errore durante la richiesta della classifica
      */
     public Classifica requestClassifica() throws Exception {
         Classifica recordTracker = new Classifica();
@@ -61,9 +66,10 @@ public class Client {
     }
 
     /**
+     * Invia un comando di terminazione al server.
      * 
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @throws IOException Se si verifica un errore di I/O durante la comunicazione
+     * @throws ClassNotFoundException Se la classe dell'oggetto ricevuto non è trovata
      */
     public void end() throws IOException, ClassNotFoundException {
         try (Socket socket = new Socket(SERVER_ADDRESS, serverPort);

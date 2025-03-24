@@ -26,7 +26,7 @@ public class Musica {
     /**
      * Metodo che avvia la riproduzione della musica all'esecuzione del programma.
      * 
-     * @param filePath
+     * @param filePath percorso del file audio da riprodurre
      */
     public void playMusic(String filePath) {
         try {
@@ -44,6 +44,7 @@ public class Musica {
 
     /**
      * Metodo che gestisce lo stop della riproduzione della musica.
+     * Ferma e chiude il clip se è in esecuzione.
      */
     public void stopMusica() {
         if (musicaGioco != null && musicaGioco.isRunning()) {
@@ -52,6 +53,10 @@ public class Musica {
         }
     }
 
+    /**
+     * Mette in pausa la riproduzione della musica corrente.
+     * La posizione viene mantenuta per una successiva ripresa.
+     */
     public void pausaMusica() {
         if (musicaGioco != null && musicaGioco.isRunning()) {
             // musicaGioco.setMicrosecondPosition(musicaGioco.getMicrosecondPosition());
@@ -59,10 +64,18 @@ public class Musica {
         }
     }
 
+    /**
+     * Riprende la riproduzione della musica dalla posizione di pausa.
+     */
     public void riprendiMusica() {
         musicaGioco.start();
     }
 
+    /**
+     * Verifica se la musica è attualmente in riproduzione.
+     * 
+     * @return true se la musica è in riproduzione, false altrimenti
+     */
     public boolean isPlaying() {
         return musicaGioco.isRunning();
     }
@@ -70,18 +83,28 @@ public class Musica {
     /**
      * Metodo che gestisce il volume della musica.
      * 
-     * @param volume
+     * @param volume livello del volume da impostare in decibel
      */
     public void setVolume(float volume) {
         FloatControl gainControl = (FloatControl) musicaGioco.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(volume);
     }
 
+    /**
+     * Restituisce il volume corrente della musica.
+     * 
+     * @return il livello corrente del volume in decibel
+     */
     public float getVolume() {
         FloatControl gainControl = (FloatControl) musicaGioco.getControl(FloatControl.Type.MASTER_GAIN);
         return gainControl.getValue();
     }
 
+    /**
+     * Riproduce un effetto sonoro una sola volta.
+     * 
+     * @param filePath percorso del file audio da riprodurre
+     */
     public void riproduciClip(String filePath) {
         try {
             Clip clip = AudioSystem.getClip();

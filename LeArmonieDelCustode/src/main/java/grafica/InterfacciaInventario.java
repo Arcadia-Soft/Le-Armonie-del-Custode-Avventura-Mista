@@ -11,7 +11,9 @@ import javax.swing.table.DefaultTableModel;
 import tipi.Inventario;
 
 /**
- *
+ * Classe che implementa l'interfaccia grafica per visualizzare l'inventario del giocatore.
+ * Mostra una tabella con gli oggetti posseduti e le relative quantità.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -21,6 +23,11 @@ public class InterfacciaInventario extends javax.swing.JFrame {
     private final Color TEXT = new Color(06, 06, 06);
     private final Color WHITE = new Color(250, 249, 246);
 
+    /**
+     * Costruttore che inizializza l'interfaccia dell'inventario.
+     * 
+     * @param inv L'inventario da visualizzare
+     */
     public InterfacciaInventario(Inventario inv) {
         initComponents(inv);
     }

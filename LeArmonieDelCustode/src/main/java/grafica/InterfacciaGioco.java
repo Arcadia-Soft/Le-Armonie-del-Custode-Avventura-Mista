@@ -36,7 +36,10 @@ import parser.ParserOutput;
 import learmoniedelcustode.LeArmonieDelCustode;
 
 /**
- *
+ * Classe che implementa l'interfaccia grafica principale del gioco.
+ * Gestisce la visualizzazione del testo, l'input del giocatore, la musica,
+ * il cronometro e tutte le interazioni con il gioco.
+ * 
  * @author Alessandro Pellegrino
  * @author Kevin Saracino
  */
@@ -63,6 +66,12 @@ public class InterfacciaGioco extends javax.swing.JFrame {
 
     private final JFrame parentFrame;
 
+    /**
+     * Costruttore per una nuova partita.
+     * 
+     * @param parentFrame Il frame genitore (menu principale)
+     * @throws Exception Se si verifica un errore durante l'inizializzazione del gioco
+     */
     public InterfacciaGioco(JFrame parentFrame) throws Exception {
         initComponents();
         this.parentFrame = parentFrame;
@@ -83,6 +92,13 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         // });
     }
 
+    /**
+     * Costruttore per caricare una partita salvata.
+     * 
+     * @param parentFrame Il frame genitore (menu principale)
+     * @param f Il file di salvataggio da caricare
+     * @throws Exception Se si verifica un errore durante il caricamento del gioco
+     */
     public InterfacciaGioco(JFrame parentFrame, File f) throws Exception {
         initComponents();
         this.parentFrame = parentFrame;

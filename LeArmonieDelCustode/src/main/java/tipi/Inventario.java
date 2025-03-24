@@ -7,8 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  * Classe che rappresenta l'inventario del giocatore.
- * L'inventario è implementato come una HashMap, dove la chiave è un oggetto
- * Item
+ * L'inventario è implementato come una HashMap, dove la chiave è un oggetto Item
  * rappresentante l'oggetto (sottoforma di Stringa) e il valore è la quantità di
  * quell'oggetto.
  * 
@@ -18,14 +17,20 @@ import java.util.regex.Pattern;
 public class Inventario implements Serializable {
     private final HashMap<Item, Integer> inventario;
 
+    /**
+     * Costruttore che inizializza un nuovo inventario vuoto.
+     */
     public Inventario() {
         inventario = new HashMap<>();
     }
 
     /**
      * Metodo per aggiungere un oggetto all'inventario.
+     * Se l'oggetto è già presente, ne incrementa la quantità.
+     * Se l'oggetto non è presente, lo aggiunge con la quantità specificata.
      * 
-     * @param oggetto
+     * @param oggetto L'oggetto da aggiungere all'inventario
+     * @param quantity La quantità dell'oggetto da aggiungere
      */
     public void addOggetto(Item oggetto, int quantity) {
         if (inventario.containsKey(oggetto)) {
@@ -36,10 +41,11 @@ public class Inventario implements Serializable {
     }
 
     /**
-     * Metodo per rimuovere un oggetto dall'inventario. (per comodità, non potrà
-     * usarlo il giocatore, ma solo il programmatore)
+     * Metodo per rimuovere un oggetto dall'inventario.
+     * Se la quantità dell'oggetto è maggiore di 1, ne decrementa la quantità.
+     * Se la quantità è 1, rimuove completamente l'oggetto dall'inventario.
      * 
-     * @param oggetto
+     * @param oggetto L'oggetto da rimuovere dall'inventario
      */
     public void remove(Item oggetto) {
         if (inventario.containsKey(oggetto)) {
@@ -52,10 +58,10 @@ public class Inventario implements Serializable {
     }
 
     /**
-     * Metodo per ricevere la dimensione dell'inventario. (numero di oggetti
-     * presenti, utile per stamparli)
+     * Metodo per ricevere la dimensione dell'inventario.
+     * Restituisce il numero di tipi di oggetti diversi presenti nell'inventario.
      * 
-     * @return int per la dimensione dell'inventario.
+     * @return Il numero di tipi di oggetti nell'inventario
      */
     public int getSize() {
         return inventario.size();
@@ -64,22 +70,29 @@ public class Inventario implements Serializable {
     /**
      * Metodo per ricevere l'insieme di oggetti presenti nell'inventario.
      * 
-     * @return Set di oggetti presenti nell'inventario.
+     * @return Un Set contenente tutti gli oggetti presenti nell'inventario
      */
     public Set<Item> getOggetti() {
         return inventario.keySet();
     }
 
     /**
-     * Metodo per controllare se un oggetto è presente nell'inventario.
+     * Metodo per controllare se un oggetto specifico è presente nell'inventario.
      * 
-     * @param oggetto
-     * @return true se l'oggetto è presente, false altrimenti.
+     * @param oggetto L'oggetto da cercare
+     * @return true se l'oggetto è presente, false altrimenti
      */
     public boolean contains(Item oggetto) {
         return inventario.containsKey(oggetto);
     }
 
+    /**
+     * Metodo per controllare se uno o più oggetti sono presenti nell'inventario.
+     * La ricerca viene effettuata sia sul nome dell'oggetto che sui suoi alias.
+     * 
+     * @param oggetto Uno o più nomi di oggetti da cercare
+     * @return true se tutti gli oggetti specificati sono presenti, false altrimenti
+     */
     public boolean contains(String... oggetto) {
         for (String nameItem : oggetto) {
             boolean found = false;
@@ -99,8 +112,8 @@ public class Inventario implements Serializable {
     /**
      * Metodo per ricevere la quantità di un oggetto presente nell'inventario.
      * 
-     * @param oggetto
-     * @return int per la quantità dell'oggetto.
+     * @param oggetto L'oggetto di cui si vuole conoscere la quantità
+     * @return La quantità dell'oggetto presente, 0 se l'oggetto non è presente
      */
     public int getQuantity(Item oggetto) {
         if (!inventario.containsKey(oggetto)) {
@@ -142,8 +155,11 @@ public class Inventario implements Serializable {
 
     /**
      * Metodo per ricevere l'inventario sottoforma di matrice di Stringhe.
+     * Converte l'inventario in un formato adatto per essere visualizzato in una JTable.
+     * La prima colonna contiene i nomi degli oggetti con la prima lettera maiuscola,
+     * la seconda colonna contiene le relative quantità.
      * 
-     * @return String[][] per l'inventario.
+     * @return Una matrice di stringhe rappresentante l'inventario
      */
     public String[][] getInventarioToJTableData() {
         String[][] invS = new String[inventario.size()][2];
@@ -158,9 +174,10 @@ public class Inventario implements Serializable {
     }
 
     /**
-     * Metodo per ricevere l'inventario come oggetto.
+     * Metodo per ricevere l'inventario come oggetto HashMap.
      * 
-     * @return HashMap<Item, Integer> per l'inventario.
+     * @return L'HashMap che rappresenta l'inventario, dove le chiavi sono gli oggetti
+     *         e i valori sono le relative quantità
      */
     public HashMap<Item, Integer> getInventario() {
         return inventario;
