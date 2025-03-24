@@ -40,10 +40,7 @@ public class PickUpObserver implements GameObserver {
                         
                         description.getInventario().addOggetto(pickUpItem, quantity);
 
-                        if (pickUpItem.getName().equals("pentagramma armonico")
-                                && description.getInventario().contains(new Item("liuto leggendario"))
-                                || pickUpItem.getName().equals("liuto leggendario")
-                                        && description.getInventario().contains(new Item("pentagramma armonico"))) {
+                        if (description.getInventario().contains("liuto leggendario", "pentagramma armonico")) {
                             description.getCaselle().stream()
                                     .filter(c -> c.getId() == 106 || c.getId() == 107)
                                     .forEach(c -> {

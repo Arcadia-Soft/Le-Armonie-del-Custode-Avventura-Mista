@@ -80,6 +80,22 @@ public class Inventario implements Serializable {
         return inventario.containsKey(oggetto);
     }
 
+    public boolean contains(String... oggetto) {
+        for (String nameItem : oggetto) {
+            boolean found = false;
+            nameItem = nameItem.toLowerCase().trim();
+            for (Item item : inventario.keySet()) {
+                if (item.getName().equals(nameItem) || item.getAlias().contains(nameItem)) {
+                    found = true;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * Metodo per ricevere la quantità di un oggetto presente nell'inventario.
      * 
