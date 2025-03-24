@@ -90,7 +90,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
 
             try {
                 Set<String> stopwords = Utils.loadFileListInSet(new File("resource/other/stopwords"));
-                parser = new Parser(stopwords);
+                parser = new Parser(stopwords, game.getCommands());
             } catch (IOException ex) {
                 throw ex;
             }
@@ -468,7 +468,7 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         if (!input.isBlank()) {
             textArea.append(input + "\n");
             textBox.setText("");
-            ParserOutput p = parser.parse(input.toLowerCase(), game.getCommands(), this);
+            ParserOutput p = parser.parse(input.toLowerCase(), game.getInventario().getOggetti(), game.getCurrentCasella().getOggetti(), this);
             game.nextMove(p, stampa);
         }
     }

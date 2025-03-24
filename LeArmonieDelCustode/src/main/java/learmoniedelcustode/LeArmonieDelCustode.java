@@ -47,8 +47,6 @@ public class LeArmonieDelCustode extends GameDescription implements GameObservab
         command = new Command(CommandType.SOUTH, "sud");
         command.setAlias(new String[] { "s", "south" });
         getCommands().add(command);
-        // command = new Command(CommandType.OPEN, "apri");
-        // getCommands().add(command);
         command = new Command(CommandType.PICK_UP, "prendi");
         command.setAlias(new String[] { "raccogli", "prendere" });
         getCommands().add(command);

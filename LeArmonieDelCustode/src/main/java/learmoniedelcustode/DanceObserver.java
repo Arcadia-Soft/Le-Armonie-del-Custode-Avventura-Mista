@@ -11,21 +11,26 @@ public class DanceObserver implements GameObserver {
     public String update(GameDescription description, ParserOutput parserOutput) {
         String msg = "";
         if (parserOutput.getCommand().getType() == CommandType.DANCE) {
-            String command = parserOutput.getInputString().split(" ")[0] + "\\s+";
-            String[] inputParsed = parserOutput.getInputString().split(command);
-            if (inputParsed.length == 2) {
-                String danceMoves = inputParsed[1].toLowerCase().replaceAll("\\s", "");
+            Object arg = parserOutput.getParams();
+            if (arg == null || !(arg instanceof String)) {
+                msg = "Sisi balla pure, ma sii più specifico... (usa il comando 'Balla' seguito dai passi di danza!)";
+            } else{
+                String danceMoves = (String) arg;
                 if (description.getCurrentCasella().getId() == 326) {
-                    if (!description.getCurrentCasella().getNorth().isEnterable() && danceMoves.equals("nnsseo")
-                            || danceMoves.equals("aaiids") || danceMoves.equals("nnssew")) {
-                        description.getCurrentCasella().getNorth().setEnterable(true);
-                        description.getCurrentCasella().setUpdated(true);
-                        msg = "Hai ballato bene, la porta è aperta!";
-                    } else if (!description.getCurrentCasella().getNorth().isEnterable() && !danceMoves.equals("nnsseo")
-                            && !danceMoves.equals("aaiids") && !danceMoves.equals("nnssew")) {
-                        msg = "Non sembra si voglia aprire con questa danza strampalata, la porta è ancora chiusa...";
-                    } else if (description.getCurrentCasella().getNorth().isEnterable()) {
-                        msg = "Hai già aperto la porta, non c'è bisogno di ballare di nuovo!";
+                    if (danceMoves.equals("nnsseo") || danceMoves.equals("aaiids") || danceMoves.equals("nnssew")) {
+                        if (!description.getCurrentCasella().getNorth().isEnterable()) {
+                            description.getCurrentCasella().getNorth().setEnterable(true);
+                            description.getCurrentCasella().setUpdated(true);
+                            msg = "Hai ballato bene, la porta si è aperta!";
+                        } else {
+                            msg = "Hai già aperto la porta, non c'è bisogno di ballare di nuovo!";
+                        }
+                    } else {
+                        if (description.getCurrentCasella().getNorth().isEnterable()) {
+                            msg = "La porta è già aperta, non c'è bisogno di ballare un'altra danza strampalata!";
+                        } else {
+                            msg = "Non sembra si voglia aprire con questa danza strampalata, la porta è ancora chiusa...";
+                        }
                     }
                 } else if (description.getCurrentCasella().getId() >= 401
                         && description.getCurrentCasella().getId() <= 411) {
@@ -36,8 +41,6 @@ public class DanceObserver implements GameObserver {
                 } else {
                     msg = "Che strana danza, ma finchè ti diverti...";
                 }
-            } else {
-                msg = "Sisi balla pure, ma sii più specifico... (usa il comando 'Balla' seguito dai passi di danza!)";
             }
         }
         return msg;

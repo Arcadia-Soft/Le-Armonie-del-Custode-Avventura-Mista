@@ -15,7 +15,7 @@ public class TalkToObserver implements GameObserver {
     public String update(GameDescription description, ParserOutput parserOutput) {
         String msg = "";
         if (parserOutput.getCommand().getType() == CommandType.TALK_TO
-                && parserOutput.getInputString().split(" ").length != 1) {
+                && parserOutput.getParams() != null) {
             msg = "Per parlare con qualcuno non devi aggiungere nulla alla parola 'Parla'! Formato: Parla (avvia dialogo) e successivamente Risposta.";
         } else if (parserOutput.getCommand().getType() == CommandType.TALK_TO) {
             Dialogo dialogo = description.getDialoghi().stream()
@@ -37,7 +37,7 @@ public class TalkToObserver implements GameObserver {
                     .findAny()
                     .orElse(null);
             if (dialogo != null) {
-                if (dialogo.valutaRisposta(parserOutput.getInputString()) && !dialogo.getRisposta().isBlank()) {
+                if (dialogo.valutaRisposta((String) parserOutput.getParams()) && !dialogo.getRisposta().isBlank()) {
                     msg = dialogo.getMessaggioRispCorretta();
                     switch (description.getCurrentCasella().getId()) {
                         case 903 -> {

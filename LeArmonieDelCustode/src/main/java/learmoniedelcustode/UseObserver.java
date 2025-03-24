@@ -23,10 +23,17 @@ public class UseObserver implements GameObserver {
     public String update(GameDescription description, ParserOutput parserOutput) {
         String msg = "";
         if (parserOutput.getCommand().getType() == CommandType.USE) {
-            String command = parserOutput.getInputString().split(" ")[0] + "\\s+";
-            String[] inputParsed = parserOutput.getInputString().split(command);
-            if (inputParsed.length == 2) {
-                String nameOBJ = inputParsed[1].toLowerCase();
+            Object args = parserOutput.getParams();
+            if (args == null) {
+                msg = "Sii più specifico, svegliati... (usa il comando 'Usa' seguito dal nome dell'oggetto)";
+                return msg;
+            }
+            if (args instanceof String[]) {
+                String[] items = (String[]) args;
+                if (items.length != 1) {
+                    return "Puoi usare solo un oggetto per volta.";
+                }
+                String nameOBJ = items[0].toLowerCase();
                 Item itemToUse = description.getInventarioSet().stream()
                         .filter(i -> i.getName().toLowerCase().equals(nameOBJ) || i.getAlias().contains(nameOBJ))
                         .findFirst()

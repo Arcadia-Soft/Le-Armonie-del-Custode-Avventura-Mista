@@ -11,10 +11,8 @@ import tipi.Command;
 public class ParserOutput {
 
     private Command command;
-
     private InterfacciaGioco interfaccia;
-
-    private String inputString;
+    private Object params;
 
     /**
      * 
@@ -22,9 +20,9 @@ public class ParserOutput {
      * @param inputString
      * @param interfaccia
      */
-    public ParserOutput(Command command, String inputString, InterfacciaGioco interfaccia) {
+    public ParserOutput(Command command, Object params, InterfacciaGioco interfaccia) {
         this.command = command;
-        this.inputString = inputString;
+        this.params = params;
         this.interfaccia = interfaccia;
     }
 
@@ -46,7 +44,7 @@ public class ParserOutput {
 
     /**
      * 
-     * @return imgLabel
+     * @return interfaccia
      */
     public InterfacciaGioco getInterfacciaGioco() {
         return interfaccia;
@@ -63,10 +61,10 @@ public class ParserOutput {
 
     /**
      * 
-     * @return parsedInputString
+     * @return params
      */
-    public String getInputString() {
-        return inputString;
+    public Object getParams() {
+        return params;
     }
 
 }

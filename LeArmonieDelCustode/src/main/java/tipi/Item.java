@@ -21,11 +21,13 @@ public class Item implements Serializable {
     public Item(String name) {
         this.name = name;
         description = "";
+        alias = new HashSet<>();
     }
 
     public Item(String name, String description) {
         this.name = name;
         this.description = description;
+        alias = new HashSet<>();
     }
 
     public Item(String name, String description, Set<String> alias) {
