@@ -11,15 +11,13 @@ Videogioco realizzato in Java, da: <br>
 
 2. **Soluzione del Gioco (SPOILER)**
 
-### 1. Descrizione del caso di studio
+### 1. Presentazione del gioco
 
-Si è realizzata un'applicazione, scritta in linguaggio Java che vede la strutturazione di un'_avventura mista_, ossia un'avventura testuale con interfaccia grafica.
-
-#### 1.1 Presentazione del gioco
-
-Il _gioco_ prende il nome de: **_Le Armonie del Custode_**, la trama riguarda le avventure di un giovane pastore di nome Luca, che, con il suo liuto, allieta le giornate di tutti gli abitanti di Arcadia, un regno maestoso.
-
-L'avventura inizia con la rottura del liuto di Luca, e sarà costretto ad andare al Regno per poterlo riparare, ma la strada è ancora lunga! Un attacco al Castello da parte di un Drago ha generato il terrore nel Regno, solo Luca potrà sistemare la situazione!
+Il _gioco_ si intitola: "**_Le Armonie del Custode_**", ne segue la sinossi:  <br>
+"Nel cuore del prospero reame di Arcadia, ove i boschi sussurrano antiche melodie e i fiumi serpeggiano come argentei nastri fra le valli, viveva un giovane pastore di nome Luca. Egli, con il dolce suono del suo liuto, recava gioia e letizia agli abitanti, colmandone i giorni di armonie celestiali. <br>
+Ma ecco che il destino, imperscrutabile tessitore delle vicende umane, pose dinanzi a Luca una prova crudele: il suo amato strumento, compagno di innumerevoli melodie, si ruppe, privandolo del suo dono più prezioso. Così, senza esitazione, il giovane intraprese il cammino verso il cuore del Regno, là dove avrebbe potuto trovare chi fosse in grado di restituire vita alla sua musica. <br>
+Tuttavia, il fato aveva intessuto una trama ancor più oscura. Un'orrenda sciagura colpì il Castello: un drago, terribile e feroce, piombò sul regno, seminando il terrore fra il popolo. Grida di disperazione riecheggiavano fra le mura, mentre il sovrano e i suoi sudditi tremavano dinnanzi alla furia della bestia. <br>
+Sarà dunque Luca, umile pastore e menestrello, a dover fronteggiare l'infausto evento, a sciogliere le maglie del terrore e a riportare l’armonia dove ora regna il caos."
 
 #### 1.2 Mappa del gioco
 
