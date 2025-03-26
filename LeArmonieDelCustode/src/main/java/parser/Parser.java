@@ -15,8 +15,10 @@ import tipi.CommandType;
 import tipi.Item;
 
 /**
- * Classe Parser che gestisce l'interpretazione dei comandi inseriti dall'utente.
- * Si occupa di analizzare l'input testuale, identificare i comandi e gli oggetti 
+ * Classe Parser che gestisce l'interpretazione dei comandi inseriti
+ * dall'utente.
+ * Si occupa di analizzare l'input testuale, identificare i comandi e gli
+ * oggetti
  * menzionati, e produrre un output strutturato per il gioco.
  *
  * @author Alessandro Pellegrino
@@ -29,8 +31,9 @@ public class Parser implements Serializable {
 
     /**
      * Costruttore del Parser
+     * 
      * @param stopwords Set di parole da ignorare durante l'analisi
-     * @param commands Lista dei comandi disponibili nel gioco
+     * @param commands  Lista dei comandi disponibili nel gioco
      */
     public Parser(Set<String> stopwords, List<Command> commands) {
         this.stopwords = stopwords;
@@ -39,6 +42,7 @@ public class Parser implements Serializable {
 
     /**
      * Cerca un comando corrispondente al token fornito
+     * 
      * @param token Stringa da cercare tra i comandi
      * @return Il comando trovato o null se non esiste
      */
@@ -51,8 +55,9 @@ public class Parser implements Serializable {
 
     /**
      * Cerca gli oggetti menzionati nell'input dell'utente
+     * 
      * @param tokens Array di parole da analizzare
-     * @param items Set di oggetti in cui cercare
+     * @param items  Set di oggetti in cui cercare
      * @return Array di stringhe contenenti gli oggetti trovati
      */
     private String[] findItems(final String[] tokens, final Set<Item> items) {
@@ -74,8 +79,9 @@ public class Parser implements Serializable {
             boolean found = false;
             currentInput.append(token).append(" ");
             String string = currentInput.toString().trim();
-            
-            // verifica se parole successive possono essere aggiunte l'ultimo a quelle precedenti per identificare lo stesso item
+
+            // verifica se parole successive possono essere aggiunte l'ultimo a quelle
+            // precedenti per identificare lo stesso item
             if (lastMatchedPattern != null) {
                 lastItemFound.append(token).append(" ");
                 if (lastMatchedPattern.matcher(lastItemFound.toString()).find()) {
@@ -84,7 +90,8 @@ public class Parser implements Serializable {
                 }
             }
 
-            // Se non è possibile identificare lo stesso item, cerca di trovare un altro item
+            // Se non è possibile identificare lo stesso item, cerca di trovare un altro
+            // item
             if (!found) {
                 found = false;
                 for (Pattern pattern : patternMap.keySet()) {
@@ -113,6 +120,7 @@ public class Parser implements Serializable {
 
     /**
      * Crea un pattern regex per la ricerca di prefissi
+     * 
      * @param prefixes Lista di prefissi da includere nel pattern
      * @return Pattern compilato per la ricerca
      */
@@ -127,9 +135,10 @@ public class Parser implements Serializable {
 
     /**
      * Analizza l'input dell'utente e produce un output strutturato
-     * @param input Stringa contenente il comando dell'utente
-     * @param inventory Set di oggetti nell'inventario del giocatore
-     * @param roomItems Set di oggetti presenti nella stanza
+     * 
+     * @param input       Stringa contenente il comando dell'utente
+     * @param inventory   Set di oggetti nell'inventario del giocatore
+     * @param roomItems   Set di oggetti presenti nella stanza
      * @param interfaccia Riferimento all'interfaccia grafica del gioco
      * @return ParserOutput contenente il comando interpretato e i suoi parametri
      */
@@ -151,16 +160,20 @@ public class Parser implements Serializable {
             return new ParserOutput(command, null, interfaccia);
         }
 
-        if (command.getType().equals(CommandType.PICK_UP) || command.getType().equals(CommandType.USE)) {
-            Set<Item> items = new java.util.HashSet<>();
-            if (command.getType().equals(CommandType.USE)) {
-                items.addAll(inventory);
+        switch (command.getType()) {
+            case PICK_UP, USE, LOOK_AT -> {
+                Set<Item> items = new java.util.HashSet<>();
+                if (!command.getType().equals(CommandType.PICK_UP)) {
+                    items.addAll(inventory);
+                }
+                items.addAll(roomItems);
+                String[] itemsFound = findItems(tokens.subList(1, tokens.size()).toArray(new String[0]), items);
+                return new ParserOutput(command, itemsFound, interfaccia);
             }
-            items.addAll(roomItems);
-            String[] itemsFound = findItems(tokens.subList(1, tokens.size()).toArray(new String[0]), items);
-            return new ParserOutput(command, itemsFound, interfaccia);
-        }
 
-        return new ParserOutput(command, String.join(" ", tokens.subList(1, tokens.size())), interfaccia);
+            default -> {
+                return new ParserOutput(command, String.join(" ", tokens.subList(1, tokens.size())), interfaccia);
+            }
+        }
     }
 }
