@@ -549,6 +549,10 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         return chrono;
     }
 
+    public JFrame getParentFrame() {
+        return parentFrame;
+    }
+
     private javax.swing.JPanel buttonPanelExit;
     private javax.swing.JFrame confermaChiusura;
     private javax.swing.JButton esciButton;
