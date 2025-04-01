@@ -1,6 +1,6 @@
 # Le Armonie del Custode
 Videogioco realizzato in Java, da: <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;[Alessandro Pellegrino](https://github.com/PellegrinoAl) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;[Alessandro Pellegrino](https://github.com/ale-pell) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;[Kevin Saracino](https://github.com/kelvinsrcn) <br>
 
 ## Indice
