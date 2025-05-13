@@ -9,7 +9,9 @@ Videogioco realizzato in Java, da: <br>
    <br>1.1 **_Presentazione gioco_**
    <br>1.2 **_Mappa di gioco (SPOILER)_**
 
-2. **Soluzione del Gioco (SPOILER)**
+2. **Installazione e utilizzo del progetto**
+
+3. **Soluzione del Gioco (SPOILER)**
 
 ### 1. Presentazione del gioco
 
@@ -46,7 +48,14 @@ La Mappa di Gioco è la seguente:
       <img src = "./docs/img/mappa_Tempio.png" alt = "Mappa del Tempio del Pentagramma">
 </details>
 
-## 2. Soluzione del Gioco
+## 2. Installazione e utilizzo del progetto
+
+Per scaricare e iniziare a giocare seguire i seguenti passaggi:
+1. Clona il repository con il comando: `git clone https://github.com/Arcadia-Soft/Le-Armonie-del-Custode-Avventura-Mista.git`
+2. Aprire nel proprio IDE di preferenza la sotto-cartella `LeArmonieDelCustode`
+3. Eseguire il progetto, se necessario selezionare come classe main: `Starter.java`
+
+## 3. Soluzione del Gioco
 
 Si riporta in seguito la soluzione per finire il gioco (percorso breve):
 
