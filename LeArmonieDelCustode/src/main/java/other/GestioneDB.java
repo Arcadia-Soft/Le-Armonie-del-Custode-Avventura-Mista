@@ -109,7 +109,7 @@ public class GestioneDB {
      * @throws FileNotFoundException se il file dello script SQL non viene trovato
      */
     public void crea() throws SQLException, FileNotFoundException {
-        RunScript.execute(conn, new FileReader("src\\main\\java\\Other\\caselleDB.sql"));
+        RunScript.execute(conn, new FileReader("src/main/java/Other/caselleDB.sql"));
     }
 
     /**

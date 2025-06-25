@@ -63,7 +63,7 @@ Si riporta in seguito la soluzione per finire il gioco (percorso breve):
   <summary> Aprire per la soluzione (SPOILER) </summary>
 N x4 <br>
 PARLA <br>
-321 <br>
+231 <br>
 E x2 <br>
 N <br>
 E x2 <br>
