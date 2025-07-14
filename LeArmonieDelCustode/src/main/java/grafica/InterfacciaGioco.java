@@ -111,6 +111,20 @@ public class InterfacciaGioco extends javax.swing.JFrame {
         game.setChrono(chrono);
 
         try {
+            if (!loadGame) {
+                game.init();
+            } else {
+                try {
+                    ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+                    game = (LeArmonieDelCustode) ois.readObject();
+                    ((LeArmonieDelCustode) game).attachObeservers();
+                    chrono = game.getChrono();
+                    chrono.startAgain(chrono.getElapsedTime());
+                    ois.close();
+                } catch (Exception ex) {
+                    throw new GameFileException();
+                }
+            }
 
             try {
                 Set<String> stopwords = Utils.loadFileListInSet(new File("resource/other/stopwords"));
@@ -119,21 +133,6 @@ public class InterfacciaGioco extends javax.swing.JFrame {
                 throw ex;
             }
 
-            if (!loadGame) {
-                game.init();
-            } else {
-                try {
-                    ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-                    LeArmonieDelCustode temp = (LeArmonieDelCustode) ois.readObject();
-                    temp.attachObeservers();
-                    game = temp;
-                    chrono = game.getChrono();
-                    chrono.startAgain(chrono.getElapsedTime());
-                    ois.close();
-                } catch (Exception ex) {
-                    throw new GameFileException();
-                }
-            }
             textArea.append(
                     """
                             \t\t┌──────────────────────────────────┐
