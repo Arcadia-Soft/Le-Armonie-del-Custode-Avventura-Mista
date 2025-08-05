@@ -1,4 +1,4 @@
-package other;
+package basegame;
 
 import parser.ParserOutput;
 

@@ -1,7 +1,7 @@
 package parser;
 
+import basegame.Command;
 import grafica.InterfacciaGioco;
-import tipi.Command;
 
 /**
  * Classe che rappresenta l'output del parser del gioco.

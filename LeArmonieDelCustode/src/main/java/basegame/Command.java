@@ -1,4 +1,4 @@
-package tipi;
+package basegame;
 
 import java.io.Serializable;
 import java.util.Arrays;

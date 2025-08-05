@@ -1,10 +1,10 @@
 package learmoniedelcustode;
 
-import other.GameDescription;
-import other.GameObserver;
+import basegame.Command;
+import basegame.CommandType;
+import basegame.GameDescription;
+import basegame.GameObserver;
 import parser.ParserOutput;
-import tipi.Command;
-import tipi.CommandType;
 import tipi.Item;
 
 /**
@@ -41,7 +41,7 @@ public class UseObserver implements GameObserver {
                 if (itemToUse != null) {
                     switch (description.getCurrentCasella().getId()) {
                         case 209 -> {
-                            switch (itemToUse.getName()) {
+                            switch (itemToUse.getName().toLowerCase()) {
                                 case "coltello" -> {
                                     description.getCaselle()
                                             .stream()

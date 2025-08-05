@@ -2,10 +2,10 @@ package learmoniedelcustode;
 
 import java.util.regex.Pattern;
 
-import other.GameDescription;
-import other.GameObserver;
+import basegame.CommandType;
+import basegame.GameDescription;
+import basegame.GameObserver;
 import parser.ParserOutput;
-import tipi.CommandType;
 import tipi.Item;
 
 public class PickUpObserver implements GameObserver {
@@ -16,7 +16,6 @@ public class PickUpObserver implements GameObserver {
         if (parserOutput.getCommand().getType() == CommandType.PICK_UP) {
             Object args = parserOutput.getParams();
             if (args == null) {
-                System.out.println("Non hai specificato l'oggetto da prendere");
                 msg = "Sii più specifico, svegliati... (usa il comando 'Prendi' seguito dal nome dell'oggetto)";
                 return msg;
             }

@@ -2,10 +2,10 @@ package learmoniedelcustode;
 
 import javax.swing.ImageIcon;
 
-import other.GameDescription;
-import other.GameObserver;
+import basegame.CommandType;
+import basegame.GameDescription;
+import basegame.GameObserver;
 import parser.ParserOutput;
-import tipi.CommandType;
 
 public class HelpObserver implements GameObserver {
 

@@ -191,7 +191,7 @@ public class QuizAPI {
 				}
 				dialogo.setTestoDialogo(s);
 				dialogo.setRisposta(r.getResults().get(0).getCorrect_answer());
-				System.out.println(r.getResults().get(0).getCorrect_answer()); // DEBUG LINE
+				// System.out.println(r.getResults().get(0).getCorrect_answer()); // DEBUG LINE
 
 			} else {
 				totalRequest++;

@@ -5,13 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+
+import basegame.Command;
+import basegame.CommandType;
+
 import java.util.Map;
 import java.util.HashMap;
 
 import grafica.InterfacciaGioco;
 import other.Utils;
-import tipi.Command;
-import tipi.CommandType;
 import tipi.Item;
 
 /**

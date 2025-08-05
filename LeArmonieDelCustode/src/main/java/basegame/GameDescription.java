@@ -1,4 +1,4 @@
-package other;
+package basegame;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Set;
 
 import mondo.Casella;
+import other.Chrono;
+import other.StampaTesto;
 import parser.ParserOutput;
-import tipi.Command;
-import tipi.CommandType;
 import tipi.Dialogo;
 import tipi.Inventario;
 import tipi.Item;
@@ -41,6 +41,9 @@ public abstract class GameDescription implements Serializable {
 
     /** Casella corrente in cui si trova il giocatore */
     private Casella currentCasella;
+
+    /** Stato del giocatore */
+    private PlayerState state;
 
     /**
      * Restituisce la lista delle caselle del gioco
@@ -136,6 +139,16 @@ public abstract class GameDescription implements Serializable {
      */
     public void setChrono(Chrono chrono) {
         this.chrono = chrono;
+    }
+
+    public PlayerState getPlayerState(){
+        return state;
+    }
+
+    public void setPlayerState(PlayerState state) {
+        if (state == null)
+            state = PlayerState.NORMAL;
+        this.state = state;
     }
 
     /**

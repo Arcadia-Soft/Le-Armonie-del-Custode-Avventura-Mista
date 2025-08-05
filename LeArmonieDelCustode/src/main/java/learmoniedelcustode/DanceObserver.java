@@ -1,9 +1,9 @@
 package learmoniedelcustode;
 
-import other.GameDescription;
-import other.GameObserver;
+import basegame.CommandType;
+import basegame.GameDescription;
+import basegame.GameObserver;
 import parser.ParserOutput;
-import tipi.CommandType;
 
 public class DanceObserver implements GameObserver {
 
@@ -17,7 +17,7 @@ public class DanceObserver implements GameObserver {
             } else{
                 String danceMoves = (String) arg;
                 if (description.getCurrentCasella().getId() == 326) {
-                    if (danceMoves.equals("nnsseo") || danceMoves.equals("aaiids") || danceMoves.equals("nnssew")) {
+                    if (danceMoves.matches("^(nnsseo|aaiids|nnssew)$")) {
                         if (!description.getCurrentCasella().getNorth().isEnterable()) {
                             description.getCurrentCasella().getNorth().setEnterable(true);
                             description.getCurrentCasella().setUpdated(true);

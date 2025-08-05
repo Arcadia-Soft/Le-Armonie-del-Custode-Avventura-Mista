@@ -5,10 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import other.GameDescription;
-import other.GameObserver;
+import basegame.CommandType;
+import basegame.GameDescription;
+import basegame.GameObserver;
 import parser.ParserOutput;
-import tipi.CommandType;
 
 public class SaveObserver implements GameObserver {
 

@@ -1,10 +1,10 @@
 package learmoniedelcustode;
 
+import basegame.CommandType;
+import basegame.GameDescription;
+import basegame.GameObserver;
 import grafica.InterfacciaMorte;
-import other.GameDescription;
-import other.GameObserver;
 import parser.ParserOutput;
-import tipi.CommandType;
 
 public class DeathObserver implements GameObserver {
 

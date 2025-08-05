@@ -24,10 +24,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.text.DefaultCaret;
 
+import basegame.GameDescription;
 import eccezioni.GameFileException;
 import eccezioni.GameNotAvailableException;
 import other.Chrono;
-import other.GameDescription;
 import other.Musica;
 import other.StampaTesto;
 import other.Utils;

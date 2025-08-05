@@ -57,6 +57,15 @@ public class Inventario implements Serializable {
         }
     }
 
+    public void  remove(String nameItem) {
+        for (Item item : inventario.keySet()) {
+                if (item.getName().equals(nameItem) || item.getAlias().contains(nameItem)) {
+                    remove(item);
+                    break;
+                }
+            }
+    }
+
     /**
      * Metodo per ricevere la dimensione dell'inventario.
      * Restituisce il numero di tipi di oggetti diversi presenti nell'inventario.
@@ -121,37 +130,6 @@ public class Inventario implements Serializable {
         }
         return inventario.get(oggetto);
     }
-
-    /**
-     * Metodo per svuotare l'inventario.
-     * (metodo non utilizzato per questa release)
-    public void clear() {
-        inventario.clear();
-    }
-
-    /**
-     * Metodo per controllare se l'inventario è vuoto.
-     * (metodo non utilizzato per questa release)
-     * @return true se l'inventario è vuoto, false altrimenti.
-     *
-    public boolean isEmpty() {
-        return inventario.isEmpty();
-    }
-
-    /**
-     * Metodo per stampare l'inventario.
-     * Stampa l'inventario con il formato "NomeOggetto xQuantità" (utile per il
-     * debug).
-     * (metodo non utilizzato per questa release)
-     *
-    public void printInventario() {
-        if (inventario.isEmpty()) {
-            System.out.println("Inventario vuoto");
-        } else {
-            System.out.println("Inventario:");
-            inventario.forEach((k, v) -> System.out.println(k.getName() + " x" + v));
-        }
-    }*/
 
     /**
      * Metodo per ricevere l'inventario sottoforma di matrice di Stringhe.

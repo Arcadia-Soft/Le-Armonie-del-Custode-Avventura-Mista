@@ -3,15 +3,16 @@ package learmoniedelcustode;
 import java.util.ArrayList;
 import java.util.List;
 
+import basegame.Command;
+import basegame.CommandType;
+import basegame.GameDescription;
+import basegame.GameObservable;
+import basegame.GameObserver;
+import basegame.PlayerState;
 import mondo.Casella;
-import other.GameDescription;
-import other.GameObservable;
-import other.GameObserver;
 import other.GestioneDB;
 import other.StampaTesto;
 import parser.ParserOutput;
-import tipi.Command;
-import tipi.CommandType;
 
 /**
  * Classe principale del gioco "Le Armonie Del Custode" che gestisce lo stato del gioco, i comandi e le interazioni con gli observer.
@@ -30,6 +31,7 @@ public class LeArmonieDelCustode extends GameDescription implements GameObservab
 
     @Override
     public void init() throws Exception {
+        setPlayerState(null);
         // Aggiunta comandi
         Command command = new Command(CommandType.DEATH, "muori");
         getCommands().add(command);
@@ -91,12 +93,12 @@ public class LeArmonieDelCustode extends GameDescription implements GameObservab
         attach(new DanceObserver());
         attach(new SaveObserver());
         attach(new TheEndObserver());
+        attach(new ResponseObserver());
     }
 
     @Override
     public void nextMove(ParserOutput p, StampaTesto out) {
-        if (p == null || p.getCommand().getType() == CommandType.NULL_COMMAND
-                && getLastCommand().getType() != CommandType.TALK_TO) {
+        if (p == null || getPlayerState() != PlayerState.TALKING && p.getCommand().getType() == CommandType.NULL_COMMAND) {
             out.stampa("Non ho capito cosa intendi...");
         } else {
             parserOutput = p;

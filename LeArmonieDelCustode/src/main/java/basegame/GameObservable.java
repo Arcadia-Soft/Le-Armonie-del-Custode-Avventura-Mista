@@ -1,4 +1,4 @@
-package other;
+package basegame;
 
 /**
  * Interfaccia che definisce il comportamento di un oggetto osservabile nel gioco.
